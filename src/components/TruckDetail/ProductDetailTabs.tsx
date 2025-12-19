@@ -852,7 +852,52 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
           {truck.insulatedBox && renderSpecTable(truck.insulatedBox, 'Thông số thùng bảo ôn')}
           {truck.closedBox && renderSpecTable(truck.closedBox, 'Thông số thùng kín')}
           {truck.tarpaulinBox && renderSpecTable(truck.tarpaulinBox, 'Thông số thùng bạt')}
-          {truck.flatbedBox && renderSpecTable(truck.flatbedBox, 'Thông số thùng lửng')}
+
+          {truck.flatbedBox && (
+            <>
+              <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số thùng lửng</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.flatbedBox.floorMaterial && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Vật liệu sàn</td>
+                      <td className="py-2 px-3 font-medium">{truck.flatbedBox.floorMaterial}</td>
+                    </tr>
+                  )}
+                  {truck.flatbedBox.floorThickness && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Độ dày sàn</td>
+                      <td className="py-2 px-3 font-medium">{truck.flatbedBox.floorThickness}</td>
+                    </tr>
+                  )}
+                  {truck.flatbedBox.sideHeight && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Chiều cao thành bên</td>
+                      <td className="py-2 px-3 font-medium">{truck.flatbedBox.sideHeight}</td>
+                    </tr>
+                  )}
+                  {truck.flatbedBox.sideType && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Loại thành bên</td>
+                      <td className="py-2 px-3 font-medium">{truck.flatbedBox.sideType}</td>
+                    </tr>
+                  )}
+                  {truck.flatbedBox.sideAccess && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Khả năng bốc dỡ</td>
+                      <td className="py-2 px-3 font-medium">{truck.flatbedBox.sideAccess}</td>
+                    </tr>
+                  )}
+                  {truck.flatbedBox.reinforcement && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Gia cường</td>
+                      <td className="py-2 px-3 font-medium">{truck.flatbedBox.reinforcement}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
 
           {truck.tankSpec && (
             <>
