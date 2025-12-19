@@ -96,31 +96,13 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                 <td className="py-2 px-3 font-medium">{truck.weightText}</td>
               </tr>
               <tr className="border-b">
-                <td className="py-2 px-3 text-gray-600">Kích thước</td>
+                <td className="py-2 px-3 text-gray-600">Kích thước tổng thể (D×R×C)</td>
                 <td className="py-2 px-3 font-medium">{truck.dimensions}</td>
               </tr>
-              {truck.origin && (
+              {truck.insideDimension && (
                 <tr className="border-b">
-                  <td className="py-2 px-3 text-gray-600">Xuất xứ</td>
-                  <td className="py-2 px-3 font-medium">{truck.origin}</td>
-                </tr>
-              )}
-              {truck.engineModel && (
-                <tr className="border-b">
-                  <td className="py-2 px-3 text-gray-600">Động cơ</td>
-                  <td className="py-2 px-3 font-medium">{truck.engineModel}</td>
-                </tr>
-              )}
-              {truck.enginePower && (
-                <tr className="border-b">
-                  <td className="py-2 px-3 text-gray-600">Công suất</td>
-                  <td className="py-2 px-3 font-medium">{truck.enginePower}</td>
-                </tr>
-              )}
-              {truck.transmission && (
-                <tr className="border-b">
-                  <td className="py-2 px-3 text-gray-600">Hộp số</td>
-                  <td className="py-2 px-3 font-medium">{truck.transmission}</td>
+                  <td className="py-2 px-3 text-gray-600">Kích thước lòng thùng (D×R×C)</td>
+                  <td className="py-2 px-3 font-medium">{truck.insideDimension}</td>
                 </tr>
               )}
               {truck.wheelbaseText && (
@@ -129,8 +111,252 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                   <td className="py-2 px-3 font-medium">{truck.wheelbaseText}</td>
                 </tr>
               )}
+              {truck.groundClearance && (
+                <tr className="border-b">
+                  <td className="py-2 px-3 text-gray-600">Khoảng sáng gầm xe</td>
+                  <td className="py-2 px-3 font-medium">{truck.groundClearance} mm</td>
+                </tr>
+              )}
+              {truck.turningRadius && (
+                <tr className="border-b">
+                  <td className="py-2 px-3 text-gray-600">Bán kính quay vòng tối thiểu</td>
+                  <td className="py-2 px-3 font-medium">{truck.turningRadius} m</td>
+                </tr>
+              )}
+              {truck.origin && (
+                <tr className="border-b">
+                  <td className="py-2 px-3 text-gray-600">Xuất xứ</td>
+                  <td className="py-2 px-3 font-medium">{truck.origin}</td>
+                </tr>
+              )}
             </tbody>
           </table>
+
+          {/* Thông số động cơ chi tiết */}
+          {(truck.engineModel || truck.engineCapacity || truck.enginePower || truck.engineTorque) && (
+            <>
+              <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Động cơ & Hệ truyền động</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.engineModel && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Mã động cơ</td>
+                      <td className="py-2 px-3 font-medium">{truck.engineModel}</td>
+                    </tr>
+                  )}
+                  {truck.engineType && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Loại động cơ</td>
+                      <td className="py-2 px-3 font-medium">{truck.engineType}</td>
+                    </tr>
+                  )}
+                  {truck.engineCapacity && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Dung tích xy-lanh</td>
+                      <td className="py-2 px-3 font-medium">{truck.engineCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.enginePower && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Công suất cực đại</td>
+                      <td className="py-2 px-3 font-medium">{truck.enginePower}</td>
+                    </tr>
+                  )}
+                  {truck.engineTorque && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Mô-men xoắn cực đại</td>
+                      <td className="py-2 px-3 font-medium">{truck.engineTorque}</td>
+                    </tr>
+                  )}
+                  {truck.fuel && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Nhiên liệu</td>
+                      <td className="py-2 px-3 font-medium">{truck.fuel}</td>
+                    </tr>
+                  )}
+                  {truck.emissionStandard && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600">Tiêu chuẩn khí thải</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.emissionStandard}</td>
+                    </tr>
+                  )}
+                  {truck.transmission && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hộp số</td>
+                      <td className="py-2 px-3 font-medium">{truck.transmission}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
+          {/* Thông số trọng lượng */}
+          {(truck.kerbWeight || truck.grossWeight) && (
+            <>
+              <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Trọng lượng</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.kerbWeight && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Trọng lượng bản thân</td>
+                      <td className="py-2 px-3 font-medium">{truck.kerbWeight}</td>
+                    </tr>
+                  )}
+                  <tr className="border-b">
+                    <td className="py-2 px-3 text-gray-600">Tải trọng cho phép chở</td>
+                    <td className="py-2 px-3 font-medium">{truck.weightText}</td>
+                  </tr>
+                  {truck.grossWeight && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Trọng lượng toàn bộ</td>
+                      <td className="py-2 px-3 font-medium">{truck.grossWeight}</td>
+                    </tr>
+                  )}
+                  {truck.frontAxleLoad && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Tải trọng cầu trước</td>
+                      <td className="py-2 px-3 font-medium">{truck.frontAxleLoad}</td>
+                    </tr>
+                  )}
+                  {truck.rearAxleLoad && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Tải trọng cầu sau</td>
+                      <td className="py-2 px-3 font-medium">{truck.rearAxleLoad}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
+          {/* Thông số khung gầm, treo, phanh */}
+          {(truck.chassisMaterial || truck.frontSuspension || truck.rearSuspension || truck.frontBrake || truck.rearBrake || truck.tires) && (
+            <>
+              <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Khung gầm & Hệ thống treo & Phanh</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.chassisMaterial && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Khung gầm</td>
+                      <td className="py-2 px-3 font-medium">{truck.chassisMaterial}</td>
+                    </tr>
+                  )}
+                  {truck.frontSuspension && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống treo trước</td>
+                      <td className="py-2 px-3 font-medium">{truck.frontSuspension}</td>
+                    </tr>
+                  )}
+                  {truck.rearSuspension && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống treo sau</td>
+                      <td className="py-2 px-3 font-medium">{truck.rearSuspension}</td>
+                    </tr>
+                  )}
+                  {truck.frontBrake && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Phanh trước</td>
+                      <td className="py-2 px-3 font-medium">{truck.frontBrake}</td>
+                    </tr>
+                  )}
+                  {truck.rearBrake && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Phanh sau</td>
+                      <td className="py-2 px-3 font-medium">{truck.rearBrake}</td>
+                    </tr>
+                  )}
+                  {truck.brakeSystem && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống phanh</td>
+                      <td className="py-2 px-3 font-medium">{truck.brakeSystem}</td>
+                    </tr>
+                  )}
+                  {truck.parkingBrake && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Phanh tay</td>
+                      <td className="py-2 px-3 font-medium">{truck.parkingBrake}</td>
+                    </tr>
+                  )}
+                  {truck.steeringType && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống lái</td>
+                      <td className="py-2 px-3 font-medium">{truck.steeringType}</td>
+                    </tr>
+                  )}
+                  {truck.tires && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Lốp xe</td>
+                      <td className="py-2 px-3 font-medium">{truck.tires}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
+          {/* Thông số cabin và tiện nghi */}
+          {(truck.cabinType || truck.seats || (truck.cabinFeatures && truck.cabinFeatures.length > 0)) && (
+            <>
+              <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Nội thất & Tiện nghi</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.cabinType && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Loại cabin</td>
+                      <td className="py-2 px-3 font-medium">{truck.cabinType}</td>
+                    </tr>
+                  )}
+                  {truck.seats && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Số chỗ ngồi</td>
+                      <td className="py-2 px-3 font-medium">{truck.seats} chỗ</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+              {truck.cabinFeatures && truck.cabinFeatures.length > 0 && (
+                <div className="mb-6 p-4 border rounded bg-blue-50">
+                  <p className="font-medium text-gray-700 mb-2">Trang bị tiện nghi:</p>
+                  <ul className="list-disc list-inside space-y-1">
+                    {truck.cabinFeatures.map((feature: string, index: number) => (
+                      <li key={index} className="text-gray-700">{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Thông số bổ sung từ specifications object */}
+          {truck.specifications && Object.keys(truck.specifications).length > 0 && (
+            <>
+              <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số khác</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {Object.entries(truck.specifications).map(([key, value]) => {
+                    if (!value) return null;
+                    // Chuyển đổi key sang tên hiển thị
+                    const displayNames: Record<string, string> = {
+                      fuelTankCapacity: 'Dung tích bình nhiên liệu',
+                      wadingDepth: 'Khả năng lội nước',
+                      airIntakePosition: 'Vị trí cổ hút gió',
+                      maxSpeed: 'Tốc độ tối đa',
+                      fuelConsumption: 'Mức tiêu thụ nhiên liệu',
+                      climbingAbility: 'Khả năng leo dốc'
+                    };
+                    const displayName = displayNames[key] || key;
+                    return (
+                      <tr key={key} className="border-b">
+                        <td className="py-2 px-3 text-gray-600 w-1/3">{displayName}</td>
+                        <td className="py-2 px-3 font-medium">{String(value)}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </>
+          )}
 
           {truck.tractorSpec && (
             <>
