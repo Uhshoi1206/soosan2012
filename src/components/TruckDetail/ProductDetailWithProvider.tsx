@@ -17,6 +17,7 @@ import CostEstimator from './CostEstimator';
 import useRelatedBlogForTruck from '@/hooks/useRelatedBlogForTruck';
 import { CalendarDays, Clock } from 'lucide-react';
 import type { SiteSettings } from '@/types/siteSettings';
+import { getBoxTypeSlug } from '@/utils/slugify';
 
 interface ProductDetailWithProviderProps {
   truck: Truck;
@@ -85,7 +86,7 @@ const ProductDetailWithProvider: React.FC<ProductDetailWithProviderProps> = ({
                 {truck.boxType && (
                   <>
                     <span className="mx-2">›</span>
-                    <a href={`/danh-muc-xe?type=${truck.type}&boxType=${truck.boxType}`} className="text-gray-600 hover:text-primary">
+                    <a href={`/danh-muc-xe?type=${truck.type}&boxType=${getBoxTypeSlug(truck.boxType)}`} className="text-gray-600 hover:text-primary">
                       {boxTypeName}
                     </a>
                   </>

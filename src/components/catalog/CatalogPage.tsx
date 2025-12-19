@@ -4,6 +4,7 @@ import FilterSidebar from '../FilterSidebar';
 import VehicleGrid from './VehicleGrid';
 import { Truck, TruckFilters, VehicleType } from '@/models/TruckTypes';
 import { useVehicleFiltering } from '@/hooks/useVehicleFiltering';
+import { getBoxTypeSlug } from '@/utils/slugify';
 
 interface CatalogPageProps {
   initialVehicles: Truck[];
@@ -19,7 +20,8 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
     minWeight: null,
     maxWeight: null,
     vehicleType: null,
-    search: initialSearchQuery || null
+    search: initialSearchQuery || null,
+    boxType: null
   });
 
   useEffect(() => {
@@ -30,6 +32,7 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
       const searchParam = params.get('search') || params.get('q');
       const minWeightParam = params.get('minWeight');
       const maxWeightParam = params.get('maxWeight');
+      const boxTypeParam = params.get('boxType');
 
       if (typeParam) {
         setSelectedType(typeParam);
@@ -54,6 +57,11 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
             maxWeight: maxWeight
           }));
         }
+      }
+
+      // Đọc boxType từ URL (đã là slug không dấu)
+      if (boxTypeParam) {
+        setFilters(prev => ({ ...prev, boxType: boxTypeParam }));
       }
     }
   }, []);
@@ -96,6 +104,7 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
         params.set('minWeight', String(newFilters.minWeight));
         params.set('maxWeight', String(newFilters.maxWeight));
       }
+      if (newFilters.boxType) params.set('boxType', newFilters.boxType);
 
       const newUrl = params.toString()
         ? `${window.location.pathname}?${params.toString()}`
@@ -112,7 +121,8 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
       minWeight: null,
       maxWeight: null,
       vehicleType: null,
-      search: null
+      search: null,
+      boxType: null
     };
     setFilters(emptyFilters);
     setSelectedType(null);
@@ -128,7 +138,8 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
     maxPrice: filters.maxPrice,
     minWeight: filters.minWeight,
     maxWeight: filters.maxWeight,
-    search: filters.search
+    search: filters.search,
+    boxType: filters.boxType
   });
 
   return (
