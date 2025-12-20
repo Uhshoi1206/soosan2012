@@ -343,7 +343,9 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                       airIntakePosition: 'Vị trí cổ hút gió',
                       maxSpeed: 'Tốc độ tối đa',
                       fuelConsumption: 'Mức tiêu thụ nhiên liệu',
-                      climbingAbility: 'Khả năng leo dốc'
+                      climbingAbility: 'Khả năng leo dốc',
+                      oilChangeInterval: 'Chu kỳ thay dầu',
+                      electricSystem: 'Hệ thống điện'
                     };
                     const displayName = displayNames[key] || key;
                     return (
