@@ -148,7 +148,7 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
   return (
     <>
       <VehicleTypeTabs
-        selectedType={selectedType || 'xe-tai'}
+        selectedType={selectedType}
         onTypeChange={handleTypeChange}
       />
 

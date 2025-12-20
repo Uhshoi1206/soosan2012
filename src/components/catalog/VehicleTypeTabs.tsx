@@ -5,7 +5,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { getEnabledTypes, getCategoryName } from '@/lib/generated/categories';
 
 interface VehicleTypeTabsProps {
-  selectedType: VehicleType;
+  selectedType: VehicleType | null;
   onTypeChange: (value: VehicleType) => void;
 }
 
@@ -19,7 +19,7 @@ type TabInfo = {
 
 // Xây tab động từ registry danh mục, giữ style cho 4 danh mục chính
 const getTabs = (): TabInfo[] => {
-  const styleByKey: Record<string, Pick<TabInfo, 'color'|'border'|'bg'>> = {
+  const styleByKey: Record<string, Pick<TabInfo, 'color' | 'border' | 'bg'>> = {
     'xe-tai': { color: 'text-blue-800', border: 'border-blue-400', bg: 'bg-blue-100' },
     'xe-cau': { color: 'text-orange-700', border: 'border-orange-400', bg: 'bg-orange-100' },
     'mooc': { color: 'text-purple-700', border: 'border-purple-400', bg: 'bg-purple-100' },
@@ -58,8 +58,8 @@ const VehicleTypeTabs: React.FC<VehicleTypeTabsProps> = ({ selectedType, onTypeC
               idx === 0
                 ? 'rounded-l-xl'
                 : idx === tabsToRender.length - 1
-                ? 'rounded-r-xl'
-                : '';
+                  ? 'rounded-r-xl'
+                  : '';
             return (
               <button
                 key={tab.value}
@@ -93,7 +93,7 @@ const VehicleTypeTabs: React.FC<VehicleTypeTabsProps> = ({ selectedType, onTypeC
         }}
       >
         <Tabs
-          value={selectedType}
+          value={selectedType || ''}
           onValueChange={handleTabChange}
           className="w-full"
         >
@@ -109,8 +109,8 @@ const VehicleTypeTabs: React.FC<VehicleTypeTabsProps> = ({ selectedType, onTypeC
                 idx === 0
                   ? 'rounded-l-2xl'
                   : idx === tabsToRender.length - 1
-                  ? 'rounded-r-2xl'
-                  : '';
+                    ? 'rounded-r-2xl'
+                    : '';
               return (
                 <TabsTrigger
                   key={tab.value}
