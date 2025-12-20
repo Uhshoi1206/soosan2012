@@ -1,9 +1,8 @@
 {
-  "id": "so-mi-ro-mooc-xi-tec-soosan-cho-xang-40m3",
-  "name": "Sơ Mi Rơ Moóc Xi Téc Soosan Chở Xăng Dầu 40m³",
-  "slug": "so-mi-ro-mooc-xi-tec-soosan-cho-xang-40m3",
+  "id": "so-mi-ro-mooc-xi-tec-mooc-bon-soosan-cho-xang-40m3",
+  "name": "Sơ mi rơ moóc xi téc (Mooc bồn) Soosan chở xăng dầu 40m³",
+  "slug": "so-mi-ro-mooc-xi-tec-mooc-bon-soosan-cho-xang-40m3",
   "brand": "SOOSAN",
-  "model": "DV-FUEL-40B",
   "type": "mooc",
   "price": null,
   "priceText": "Liên hệ",
@@ -13,15 +12,14 @@
   "width": 2.5,
   "height": 3.965,
   "dimensions": "11.265 × 2.500 × 3.965 mm",
-  "insideDimension": "11.000 × 2.480 × 1.900 × T3.8 mm",
   "thumbnailUrl": "https://images.unsplash.com/photo-1558618047-f2c57e73c83c?w=800&h=600&fit=crop",
   "images": [
     "https://images.unsplash.com/photo-1558618047-f2c57e73c83c?w=800&h=600&fit=crop"
   ],
-  "origin": "Việt Nam (Linh kiện Hàn Quốc/Đài Loan)",
   "isNew": true,
   "isHot": true,
   "stockStatus": "in-stock",
+  "origin": "Việt Nam (Linh kiện Hàn Quốc/Đài Loan)",
   "description": "Sơ mi rơ moóc xi téc Soosan chở xăng dầu 40m³ - bồn thép SPFH590 Hàn Quốc 6 khoang (6-7-7-7-7-6 m³), trục Yonglitai 13 tấn, chân chống FUWA 28 tấn, phanh khí nén 2 dòng, bảo hành 12 tháng. Đạt chuẩn PCCC Việt Nam.",
   "detailedDescription": "<h2>Sơ Mi Rơ Moóc Xi Téc Soosan 40m³ - Bồn Thép Hàn Quốc SPFH590, Đạt Chuẩn PCCC</h2><p><strong>Sơ mi rơ moóc xi téc Soosan DV-FUEL-40B</strong> là dòng moóc chở xăng dầu cao cấp với bồn thép <strong>SPFH590 nhập khẩu Hàn Quốc</strong>, dung tích <strong>40 m³</strong> chia 6 khoang riêng biệt. Thiết kế đạt chuẩn PCCC Việt Nam, phù hợp vận chuyển xăng, dầu diesel, dầu hỏa và các loại nhiên liệu lỏng.</p><h3>Điểm Nổi Bật Của Soosan DV-FUEL-40B</h3><ul><li><strong>Bồn thép SPFH590 Hàn Quốc</strong> - Độ bền cao, chống ăn mòn tốt</li><li><strong>6 khoang riêng biệt (6-7-7-7-7-6 m³)</strong> - Linh hoạt vận chuyển nhiều loại nhiên liệu</li><li><strong>Trục Yonglitai 13 tấn</strong> - Chịu tải vượt trội, bền bỉ</li><li><strong>Chân chống FUWA 28 tấn</strong> - Thương hiệu hàng đầu, ổn định tuyệt đối</li><li><strong>Đèn LED 12V/24V</strong> - Tiết kiệm điện, độ sáng cao</li><li><strong>Bảo hành 12 tháng</strong> - Dịch vụ hậu mãi chu đáo</li></ul><h3>Tiêu Chuẩn An Toàn PCCC</h3><ul><li><strong>Vách chắn sóng:</strong> 6 khoang riêng biệt giảm lực xô đẩy khi di chuyển</li><li><strong>Van khí nén:</strong> Đóng mở đáy bồn an toàn</li><li><strong>Hệ thống tiếp địa:</strong> Chống tĩnh điện khi nạp/xả nhiên liệu</li><li><strong>Nắp bồn:</strong> Chống tràn, đạt chuẩn PCCC Việt Nam</li><li><strong>Biển báo:</strong> Gắn biển nguy hiểm cháy nổ theo quy định</li></ul><h3>Ứng Dụng</h3><ul><li>Vận chuyển xăng RON 92, RON 95</li><li>Vận chuyển dầu diesel DO 0.05S</li><li>Vận chuyển dầu hỏa, nhiên liệu bay</li><li>Phân phối cho các trạm xăng dầu, kho chứa</li></ul><h3>Dịch Vụ Sau Bán Hàng</h3><ul><li><strong>Bảo hành:</strong> 12 tháng (chi tiết theo sổ bảo hành kèm theo)</li><li><strong>Hỗ trợ kỹ thuật:</strong> 24/7 trên toàn quốc</li><li><strong>Phụ tùng:</strong> Sẵn có tại kho Hà Nội, Đà Nẵng, TP.HCM</li></ul><h3>Tại Sao Chọn Soosan?</h3><ul><li><strong>Thương hiệu uy tín:</strong> Nhiều năm kinh nghiệm sản xuất moóc tại Việt Nam</li><li><strong>Chất lượng Hàn Quốc:</strong> Bồn thép SPFH590 nhập khẩu, trục Yonglitai, chân chống FUWA</li><li><strong>Đạt chuẩn pháp lý:</strong> QCVN 13:2011/BGTVT, TCVN 8366:2010</li><li><strong>Giá trị bán lại cao:</strong> Moóc Soosan luôn được ưa chuộng trên thị trường xe cũ</li></ul>",
   "features": [
@@ -33,9 +31,12 @@
     "Đèn LED 12V/24V tiết kiệm điện",
     "Đạt chuẩn PCCC Việt Nam, bảo hành 12 tháng"
   ],
+  "order": 1,
+  "grossWeight": "39.070 kg",
+  "insideDimension": "11.000 × 2.480 × 1.900 × T3.8 mm",
+  "model": "DV-FUEL-40B",
   "trailerType": "xi-téc",
   "kerbWeight": "9.470 kg",
-  "grossWeight": "39.070 kg",
   "wheelbase": 9810,
   "wheelbaseText": "7.190 + 1.310 + 1.310 mm",
   "tankSpec": {
@@ -81,6 +82,5 @@
       "paintColor": "Trắng-Xanh (hoặc theo yêu cầu khách hàng)",
       "warranty": "Bảo hành 12 tháng"
     }
-  },
-  "order": 1
+  }
 }
