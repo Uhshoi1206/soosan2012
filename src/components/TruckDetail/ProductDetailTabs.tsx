@@ -345,7 +345,8 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                       fuelConsumption: 'Mức tiêu thụ nhiên liệu',
                       climbingAbility: 'Khả năng leo dốc',
                       oilChangeInterval: 'Chu kỳ thay dầu',
-                      electricSystem: 'Hệ thống điện'
+                      electricSystem: 'Hệ thống điện',
+                      dumpVolume: 'Thể tích thùng ben'
                     };
                     const displayName = displayNames[key] || key;
                     return (
