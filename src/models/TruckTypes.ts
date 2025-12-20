@@ -377,6 +377,8 @@ export function getBoxTypeName(type?: string): string {
       return 'Thùng Lửng';
     case 'xi-téc':
       return 'Xi Téc Chở Xăng Dầu';
+    case 'cánh-dơi':
+      return 'Thùng Cánh Dơi';
     default:
       return '';
   }
