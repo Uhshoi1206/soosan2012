@@ -68,11 +68,14 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
 
   const handleTypeChange = (type: VehicleType) => {
     setSelectedType(type);
-    setFilters(prev => ({ ...prev, vehicleType: type }));
+    // Xóa boxType khi chuyển sang loại xe khác - người dùng sẽ chọn lại danh mục con nếu cần
+    setFilters(prev => ({ ...prev, vehicleType: type, boxType: null }));
 
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       params.set('type', type);
+      // Xóa boxType khỏi URL khi chuyển tab
+      params.delete('boxType');
       const newUrl = `${window.location.pathname}?${params.toString()}`;
       window.history.pushState({}, '', newUrl);
     }
