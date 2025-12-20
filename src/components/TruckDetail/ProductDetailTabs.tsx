@@ -349,7 +349,8 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                       dumpVolume: 'Thể tích thùng ben',
                       fuelSystem: 'Hệ thống nhiên liệu',
                       pumpCapacity: 'Công suất bơm',
-                      maxPressure: 'Áp suất tối đa'
+                      maxPressure: 'Áp suất tối đa',
+                      tankVolume: 'Dung tích bồn chứa'
                     };
                     const displayName = displayNames[key] || key;
                     return (
