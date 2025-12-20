@@ -49,7 +49,8 @@ const boxTypeSlugMap: { [key: string]: string } = {
   'bạt': 'bat',
   'lửng': 'lung',
   'xi-téc': 'xi-tec',
-  'cánh-dơi': 'canh-doi'
+  'cánh-dơi': 'canh-doi',
+  'ben': 'ben'
 };
 
 // Reverse mapping: slug -> Vietnamese value
