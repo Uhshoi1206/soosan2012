@@ -38,8 +38,6 @@
   "grossWeight": "39.070 kg",
   "wheelbase": 9810,
   "wheelbaseText": "7.190 + 1.310 + 1.310 mm",
-  "brakeSystem": "Phanh tang trống, dẫn động bằng khí nén 2 dòng",
-  "tires": "11.00-20 hoặc 12R22.5 (12+1 bộ)",
   "tankSpec": {
     "capacity": 40000,
     "capacityText": "40.000 lít (40 m³)",
