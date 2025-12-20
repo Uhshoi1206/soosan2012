@@ -347,7 +347,9 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                       oilChangeInterval: 'Chu kỳ thay dầu',
                       electricSystem: 'Hệ thống điện',
                       dumpVolume: 'Thể tích thùng ben',
-                      fuelSystem: 'Hệ thống nhiên liệu'
+                      fuelSystem: 'Hệ thống nhiên liệu',
+                      pumpCapacity: 'Công suất bơm',
+                      maxPressure: 'Áp suất tối đa'
                     };
                     const displayName = displayNames[key] || key;
                     return (
