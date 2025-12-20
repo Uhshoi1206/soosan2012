@@ -383,6 +383,8 @@ export function getBoxTypeName(type?: string): string {
       return 'Xe Ben (Xe Tự Đổ)';
     case 'trộn-bê-tông':
       return 'Xe Trộn Bê Tông';
+    case 'bơm-bê-tông':
+      return 'Xe Bơm Bê Tông';
     default:
       return '';
   }
