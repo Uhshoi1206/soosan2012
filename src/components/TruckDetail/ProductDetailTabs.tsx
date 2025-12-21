@@ -702,6 +702,12 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.systems.vacuumPump}</td>
                         </tr>
                       )}
+                      {truck.trailerSpec.systems.pneumaticSystem && (
+                        <tr className="border-b bg-green-50">
+                          <td className="py-2 px-3 text-gray-600">Hệ thống khí nén</td>
+                          <td className="py-2 px-3 font-medium text-green-700">{truck.trailerSpec.systems.pneumaticSystem}</td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
                 </>
@@ -777,6 +783,18 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                         <tr className="border-b">
                           <td className="py-2 px-3 text-gray-600 w-1/3">Vật liệu đáy thùng</td>
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.floorMaterial}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.unloadingSystem && (
+                        <tr className="border-b bg-green-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Hệ thống xả hàng</td>
+                          <td className="py-2 px-3 font-medium text-green-700">{truck.trailerSpec.body.unloadingSystem}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.unloadingCapacity && (
+                        <tr className="border-b bg-green-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Khả năng xả</td>
+                          <td className="py-2 px-3 font-medium text-green-700">{truck.trailerSpec.body.unloadingCapacity}</td>
                         </tr>
                       )}
                       {truck.trailerSpec.body.designTemperature && (
