@@ -144,7 +144,7 @@ const productsCollection = defineCollection({
     cabinFeatures: z.array(z.string()).optional(),
 
     // Vehicle Types
-    boxType: z.enum(['đông-lạnh', 'bảo-ôn', 'kín', 'bạt', 'lửng', 'xi-téc', 'cánh-dơi', 'ben', 'trộn-bê-tông', 'bơm-bê-tông']).optional(),
+    boxType: z.enum(['đông-lạnh', 'bảo-ôn', 'kín', 'bạt', 'lửng', 'xi-téc', 'cánh-dơi', 'ben', 'trộn-bê-tông', 'bơm-bê-tông', 'chở-gia-súc']).optional(),
     craneType: z.enum(['cẩu-rời', 'cẩu-gắn-xe']).optional(),
     trailerType: z.enum(['ben', 'sàn', 'sàn-rút', 'lùn', 'cổ-cò', 'xương', 'lửng', 'lồng', 'rào', 'xi-téc', 'bồn-xi-măng', 'bồn-sắt', 'bồn-bột-mì', 'đông-lạnh', 'hút-chất-thải', 'bồn-nh3', 'bồn-ni-tơ', 'bồn-hóa-chất', 'bồn-bột-pvc', 'bồn-nhựa-đường', 'bồn-thức-ăn', 'bồn-lpg', 'bồn-methanol', 'bồn-hạt-nhựa', 'bồn-co2', 'bồn-ethylene-glycol']).optional(),
 
