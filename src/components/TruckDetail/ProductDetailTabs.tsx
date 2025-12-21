@@ -191,8 +191,8 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
-          {/* Thông số trọng lượng */}
-          {(truck.kerbWeight || truck.grossWeight) && (
+          {/* Thông số trọng lượng - CHỈ hiển thị nếu KHÔNG có trailerSpec.weight để tránh duplicate */}
+          {(truck.kerbWeight || truck.grossWeight) && !truck.trailerSpec?.weight && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Trọng lượng</h4>
               <table className="w-full border-collapse border mb-6">
