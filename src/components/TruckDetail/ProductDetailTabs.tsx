@@ -601,19 +601,19 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                       )}
                       {truck.trailerSpec.chassis.frameMaterial && (
                         <tr className="border-b">
-                          <td className="py-2 px-3 text-gray-600">Vật liệu khung</td>
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Vật liệu khung</td>
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.chassis.frameMaterial}</td>
                         </tr>
                       )}
                       {truck.trailerSpec.chassis.landingGear && (
                         <tr className="border-b">
-                          <td className="py-2 px-3 text-gray-600">Chân chống</td>
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Chân chống</td>
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.chassis.landingGear}</td>
                         </tr>
                       )}
                       {truck.trailerSpec.chassis.kingpin && (
                         <tr className="border-b">
-                          <td className="py-2 px-3 text-gray-600">Chốt kéo</td>
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Chốt kéo</td>
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.chassis.kingpin}</td>
                         </tr>
                       )}
