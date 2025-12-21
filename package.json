@@ -12,6 +12,7 @@
     "cms:sync": "node scripts/sync-cms-categories.mjs && node scripts/generate-categories-data.mjs",
     "cms:generate": "node scripts/generate-cms-config.cjs",
     "cms:organize": "node scripts/organize-products.cjs",
+    "cms:brands": "node scripts/generate-brands.cjs",
     "cms:sync-filenames": "node scripts/sync-product-filenames.cjs",
     "migrate:categories": "node scripts/migrate-blog-category.mjs",
     "prebuild": "npm run cms:generate && npm run cms:sync-filenames && npm run cms:organize && npm run migrate:categories && npm run cms:sync"
