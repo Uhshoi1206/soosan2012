@@ -708,6 +708,18 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                           <td className="py-2 px-3 font-medium text-green-700">{truck.trailerSpec.systems.pneumaticSystem}</td>
                         </tr>
                       )}
+                      {truck.trailerSpec.systems.heatingSystem && (
+                        <tr className="border-b bg-orange-50">
+                          <td className="py-2 px-3 text-gray-600">Hệ thống gia nhiệt</td>
+                          <td className="py-2 px-3 font-medium text-orange-700">{truck.trailerSpec.systems.heatingSystem}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.systems.pumpSystem && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600">Hệ thống bơm</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.systems.pumpSystem}</td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
                 </>
@@ -801,6 +813,12 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                         <tr className="border-b bg-blue-50">
                           <td className="py-2 px-3 text-gray-600 w-1/3">Nhiệt độ thiết kế</td>
                           <td className="py-2 px-3 font-medium text-blue-700">{truck.trailerSpec.body.designTemperature}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.operatingTemperature && (
+                        <tr className="border-b bg-orange-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Nhiệt độ vận hành</td>
+                          <td className="py-2 px-3 font-medium text-orange-700">{truck.trailerSpec.body.operatingTemperature}</td>
                         </tr>
                       )}
                       {truck.trailerSpec.body.sideWallMaterial && (
