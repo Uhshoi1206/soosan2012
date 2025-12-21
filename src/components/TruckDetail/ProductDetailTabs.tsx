@@ -749,6 +749,18 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.valveSystem}</td>
                         </tr>
                       )}
+                      {truck.trailerSpec.body.designPressure && (
+                        <tr className="border-b bg-red-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Áp suất thiết kế</td>
+                          <td className="py-2 px-3 font-medium text-red-700">{truck.trailerSpec.body.designPressure}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.testPressure && (
+                        <tr className="border-b bg-red-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Áp suất thử bền</td>
+                          <td className="py-2 px-3 font-medium text-red-700">{truck.trailerSpec.body.testPressure}</td>
+                        </tr>
+                      )}
                       {truck.trailerSpec.body.floorMaterial && (
                         <tr className="border-b">
                           <td className="py-2 px-3 text-gray-600 w-1/3">Vật liệu đáy thùng</td>
