@@ -13,6 +13,7 @@
     "width": 2.5,
     "height": 3.88,
     "dimensions": "11.500 × 2.500 × 3.880 mm",
+    "insideDimension": "9.040 × 2.350 × 2.490 mm (thùng 2 tầng)",
     "thumbnailUrl": "https://images.unsplash.com/photo-1558618047-f2c57e73c83c?w=800&h=600&fit=crop",
     "images": [
         "https://images.unsplash.com/photo-1558618047-f2c57e73c83c?w=800&h=600&fit=crop"
@@ -37,44 +38,46 @@
     "boxType": "lửng",
     "kerbWeight": "11.400 kg",
     "grossWeight": "24.000 kg",
-    "engineSpec": {
-        "model": "Hino J08E-WD",
-        "type": "Diesel 6 xy-lanh thẳng hàng, turbo tăng áp, làm mát khí nạp",
-        "displacement": "7.684 cc",
-        "maxPower": "280 PS tại 2.500 vòng/phút",
-        "maxTorque": "824 N.m tại 1.600 vòng/phút",
-        "emissionStandard": "Euro 4",
-        "fuelSystem": "Phun nhiên liệu điều khiển điện tử"
-    },
-    "transmissionSpec": {
-        "model": "M009",
-        "type": "9 số tiến, 1 số lùi, đồng tốc từ số 1 đến số 9",
-        "clutch": "Đĩa đơn ma sát khô, trợ lực khí nén"
-    },
-    "chassisSpec": {
-        "suspension": "Nhíp lá + giảm chấn thủy lực",
-        "brakes": "Phanh khí nén toàn phần, độc lập 2 dòng",
-        "steering": "Trục vít ê cu bi, trợ lực thủy lực",
-        "tires": "11.00R20-16PR",
-        "fuelTank": "200 lít"
-    },
-    "cabinSpec": {
-        "type": "Cabin treo lò xo toàn phần, lật với cơ cấu thanh xoắn",
-        "seats": 3,
-        "sleeper": "Có giường nằm phía sau",
-        "airCon": "Điều hòa Denso",
-        "entertainment": "CD/AM/FM, USB, loa chất lượng cao"
-    },
-    "bodySpec": {
-        "innerDimensions": "9.040 × 2.350 × 2.490 mm",
-        "material": "Inox 304, đà nhôm hộp, sàn nhôm chống trượt",
-        "design": "2 tầng mui bạt thông thoáng",
-        "tailLift": "Bửng nâng thủy lực 1 tấn",
-        "cargoType": "Gia súc (heo, bò)"
-    },
-    "performanceSpec": {
+    "wheelbaseText": "6.765 + 1.320 + 1.310 mm",
+    "engineModel": "Hino J08E-WD",
+    "engineType": "Diesel 6 xy-lanh thẳng hàng, turbo tăng áp, làm mát khí nạp",
+    "engineCapacity": "7.684 cc",
+    "enginePower": "280 PS tại 2.500 vòng/phút",
+    "engineTorque": "824 N.m tại 1.600 vòng/phút",
+    "fuel": "Diesel",
+    "emissionStandard": "Euro 4",
+    "transmission": "Hino M009 - 9 số tiến, 1 số lùi, đồng tốc từ số 1 đến số 9",
+    "frontSuspension": "Nhíp lá e-lip + giảm chấn thủy lực",
+    "rearSuspension": "Nhíp chính + nhíp phụ bán e-lip",
+    "frontBrake": "Phanh khí nén toàn phần",
+    "rearBrake": "Phanh khí nén toàn phần, cam phanh chữ S",
+    "brakeSystem": "Phanh khí nén toàn phần, độc lập 2 dòng + Phanh đỗ lò xo tích năng + Phanh khí xả",
+    "steeringType": "Trục vít ê cu bi, trợ lực thủy lực",
+    "tires": "11.00R20-16PR",
+    "chassisMaterial": "Chassis Hino 500 Series siêu bền",
+    "cabinType": "Cabin treo lò xo toàn phần, lật với cơ cấu thanh xoắn",
+    "seats": 3,
+    "cabinFeatures": [
+        "Ghế bọc nỉ êm ái có thể điều chỉnh",
+        "01 giường nằm phía sau",
+        "Điều hòa Denso làm lạnh nhanh",
+        "Cửa sổ điều khiển điện",
+        "CD/AM/FM, USB, loa chất lượng cao",
+        "Vô lăng trợ lực gật gù điều chỉnh"
+    ],
+    "specifications": {
         "maxSpeed": "105 km/h",
-        "gradeability": "28%"
+        "gradeability": "28%",
+        "fuelTankCapacity": "200 lít"
+    },
+    "livestockBodySpec": {
+        "innerDimensions": "9.040 × 2.350 × 2.490 mm",
+        "material": "Inox 304 (trắng sáng, chống ăn mòn)",
+        "frameMaterial": "Đà dọc + ngang nhôm hộp chống ăn mòn",
+        "floorMaterial": "Hợp kim nhôm chống trơn trượt",
+        "design": "2 tầng mui bạt thông thoáng",
+        "tailLift": "Bửng nâng thủy lực 700kg - 1 tấn",
+        "cargoType": "Gia súc (heo, bò)"
     },
     "order": 19
 }
