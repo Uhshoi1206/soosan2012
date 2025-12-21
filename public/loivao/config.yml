@@ -231,6 +231,36 @@ collections:
       - { label: "Thứ Tự", name: "order", widget: "number", default: 0 }
 
   # =========================================================
+  # THƯƠNG HIỆU NỔI TIẾNG
+  # =========================================================
+  - name: "brands"
+    label: "🏷️ Thương Hiệu Nổi Tiếng"
+    label_singular: "Thương Hiệu"
+    description: "Quản lý logo và thông tin các thương hiệu xe. Logo sẽ hiển thị ở trang chủ."
+    folder: "src/content/brands"
+    create: true
+    slug: "{{id}}"
+    identifier_field: id
+    extension: "json"
+    format: "json"
+    summary: "{{name}}"
+    sortable_fields: ['name', 'order', 'country']
+    fields:
+      - { label: "ID (slug)", name: "id", widget: "string", required: true, hint: "VD: hyundai, isuzu, hino..." }
+      - { label: "Tên Thương Hiệu", name: "name", widget: "string", required: true }
+      - { label: "Slug URL", name: "slug", widget: "string", required: true }
+      - { label: "Logo", name: "logo", widget: "image", required: false, hint: "Upload logo PNG/WebP nền trong suốt, kích thước khuyến nghị 200x100px" }
+      - { label: "Alt Text Logo (SEO)", name: "logoAlt", widget: "string", required: false, hint: "Mô tả logo cho SEO, VD: Logo thương hiệu Hyundai" }
+      - { label: "Mô Tả Thương Hiệu", name: "description", widget: "text", required: false }
+      - { label: "Tiêu Đề SEO", name: "seoTitle", widget: "string", required: false }
+      - { label: "Mô Tả SEO", name: "seoDescription", widget: "text", required: false }
+      - { label: "Quốc Gia", name: "country", widget: "string", required: false }
+      - { label: "Website Hãng", name: "website", widget: "string", required: false }
+      - { label: "Năm Thành Lập", name: "foundedYear", widget: "number", required: false }
+      - { label: "Thứ Tự", name: "order", widget: "number", default: 0 }
+      - { label: "Kích Hoạt", name: "isActive", widget: "boolean", default: true }
+
+  # =========================================================
   # SẢN PHẨM - XE ĐẦU KÉO
   # =========================================================
   - name: "products-dau-keo"

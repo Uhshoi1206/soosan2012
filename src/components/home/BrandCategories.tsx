@@ -3,127 +3,177 @@ import React, { useState } from 'react';
 import { Truck } from '@/models/TruckTypes';
 import SectionTitle from '@/components/SectionTitle';
 
-interface BrandCategoriesProps {
-  trucks: Truck[];
+// Brand data interface from CMS
+interface BrandData {
+  id: string;
+  name: string;
+  slug: string;
+  logo?: string;
+  logoAlt?: string;
+  description?: string;
+  country?: string;
+  website?: string;
 }
 
-const BrandCategories = ({ trucks }: BrandCategoriesProps) => {
+interface BrandCategoriesProps {
+  trucks: Truck[];
+  cmsBrands?: BrandData[];
+}
+
+const BrandCategories = ({ trucks, cmsBrands = [] }: BrandCategoriesProps) => {
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
-  // Tạo danh sách thương hiệu duy nhất từ sản phẩm, chuẩn hóa chữ hoa/thường và tên hiển thị
-  const getUniqueBrands = () => {
-    const CANONICAL_BRAND_MAP: Record<string, string> = {
-      hyundai: 'Hyundai',
-      isuzu: 'Isuzu',
-      hino: 'Hino',
-      dongfeng: 'Dongfeng',
-      thaco: 'Thaco',
-      kia: 'Kia',
-      suzuki: 'Suzuki',
-      veam: 'VEAM',
-      soosan: 'Soosan',
-      doosung: 'DOOSUNG',
-      cimc: 'CIMC',
-      koksan: 'KOKSAN',
-      howo: 'HOWO',
-      jac: 'JAC',
-      'mercedes-benz': 'Mercedes-Benz',
-      volvo: 'Volvo',
-      scania: 'Scania',
-      man: 'MAN',
-      foton: 'Foton',
-      daewoo: 'Daewoo',
-      fuso: 'Fuso',
-      iveco: 'Iveco'
-    };
 
-    const toCanonical = (raw: string) => {
-      const key = raw.trim().toLowerCase();
-      return CANONICAL_BRAND_MAP[key] || raw.trim();
-    };
-
+  // Tạo danh sách thương hiệu duy nhất từ sản phẩm
+  const getUniqueBrandsFromProducts = () => {
     const map = new Map<string, string>();
     trucks.forEach(truck => {
       const brands = Array.isArray(truck.brand) ? truck.brand : [truck.brand];
       brands.filter(Boolean).forEach(b => {
         const key = String(b).trim().toLowerCase();
         if (!key) return;
-        if (!map.has(key)) map.set(key, toCanonical(String(b)));
+        if (!map.has(key)) map.set(key, String(b).trim());
       });
     });
-
-    const names = Array.from(map.values()).sort((a,b)=>a.localeCompare(b,'vi'));
-    return names.map((name, index)=>({ id: index + 1, name }));
+    return Array.from(map.values()).sort((a, b) => a.localeCompare(b, 'vi'));
   };
 
-  const brands = getUniqueBrands();
+  const productBrands = getUniqueBrandsFromProducts();
+
+  // Merge CMS brands with product brands
+  // CMS brands take priority for logo/alt text, product brands fill in missing ones
+  const getMergedBrands = (): BrandData[] => {
+    const cmsMap = new Map<string, BrandData>();
+
+    // Index CMS brands by lowercase name
+    cmsBrands.forEach(brand => {
+      cmsMap.set(brand.name.toLowerCase(), brand);
+    });
+
+    // Merge: use CMS data if available, create basic entry for product-only brands
+    const merged: BrandData[] = [];
+    const seenKeys = new Set<string>();
+
+    // First, add all CMS brands
+    cmsBrands.forEach(brand => {
+      merged.push(brand);
+      seenKeys.add(brand.name.toLowerCase());
+    });
+
+    // Then, add product brands not in CMS
+    productBrands.forEach(brandName => {
+      const key = brandName.toLowerCase();
+      if (!seenKeys.has(key)) {
+        merged.push({
+          id: key,
+          name: brandName,
+          slug: key,
+        });
+        seenKeys.add(key);
+      }
+    });
+
+    // Sort by order (CMS brands first), then alphabetically
+    return merged.sort((a, b) => {
+      // CMS brands with order come first
+      const aHasOrder = cmsBrands.some(cb => cb.name.toLowerCase() === a.name.toLowerCase());
+      const bHasOrder = cmsBrands.some(cb => cb.name.toLowerCase() === b.name.toLowerCase());
+
+      if (aHasOrder && !bHasOrder) return -1;
+      if (!aHasOrder && bHasOrder) return 1;
+
+      return a.name.localeCompare(b.name, 'vi');
+    });
+  };
+
+  const brands = getMergedBrands();
 
   const handleImageError = (brandName: string) => {
     setFailedImages(prev => new Set(prev).add(brandName));
   };
 
-  // Mapping logo cho từng thương hiệu với URL CDN-friendly
-  const getBrandLogo = (brandName: string) => {
-    const logoMap: Record<string, string> = {
-      'Hyundai': 'https://cdn.soosanmotor.com/soosanmotor.com_logo_Hyundai.webp',
-      'Thaco': 'https://upload.wikimedia.org/wikipedia/vi/thumb/b/b3/Logo_Thaco.png/512px-Logo_Thaco.png',
-      'Isuzu': 'https://cdn.soosanmotor.com/soosanmotor.com_logo_Isuzu.webp',
-      'Hino': 'https://cdn.soosanmotor.com/soosanmotor.com_logo_Hino.webp',
-      'Dongfeng': 'https://cdn.soosanmotor.com/soosanmotor.com_logo_Dongfeng.webp',
-      'JAC': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/JAC_Motors_logo.png/512px-JAC_Motors_logo.png',
-      'Mitsubishi': 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Mitsubishi_logo.svg/512px-Mitsubishi_logo.svg.png',
-      'Fuso': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Mitsubishi_Fuso_logo.svg/512px-Mitsubishi_Fuso_logo.svg.png',
-      'Daewoo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Daewoo_logo.svg/512px-Daewoo_logo.svg.png',
-      'Foton': 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Foton_logo.png/512px-Foton_logo.png',
-      'Iveco': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Iveco_logo.svg/512px-Iveco_logo.svg.png',
-      'Mercedes-Benz': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/512px-Mercedes-Logo.svg.png',
-      'Volvo': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Volvo_logo.svg/512px-Volvo_logo.svg.png',
-      'Scania': 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Scania_logo.svg/512px-Scania_logo.svg.png',
-      'MAN': 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/MAN_logo.svg/512px-MAN_logo.svg.png',
-      'Soosan': 'https://cdn.soosanmotor.com/soosanmotor.com_logo_Soosan.webp',
-      'VEAM': 'https://upload.wikimedia.org/wikipedia/vi/thumb/9/9f/Logo_VEAM.png/512px-Logo_VEAM.png',
-      'DOOSUNG': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Doosung_logo.png/512px-Doosung_logo.png',
-      'CIMC': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/CIMC_logo.png/512px-CIMC_logo.png',
-      'KOKSAN': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Koksan_logo.png/512px-Koksan_logo.png',
-      'HOWO': 'https://upload.wikimedia.org/wikipedia/commons/thumb/h/h9/HOWO_logo.png/512px-HOWO_logo.png',
-      'Suzuki': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Suzuki_logo_2.svg/512px-Suzuki_logo_2.svg.png',
-      'Kia': 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Kia_logo2.svg/512px-Kia_logo2.svg.png'
+  // Generate Schema.org structured data for SEO
+  const generateSchemaData = () => {
+    const brandsWithLogos = brands.filter(b => b.logo);
+    return {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Thương Hiệu Nổi Tiếng - Đối Tác Phân Phối Xe Tải, Cẩu, Mooc tại Soosan Motor",
+      "description": "Danh sách các thương hiệu xe tải, xe cẩu, sơ mi rơ mooc uy tín được phân phối tại Soosan Motor",
+      "numberOfItems": brands.length,
+      "itemListElement": brands.map((brand, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Brand",
+          "name": brand.name,
+          ...(brand.logo && { "logo": brand.logo }),
+          ...(brand.description && { "description": brand.description }),
+          "url": `https://soosanmotor.com/danh-muc-xe?brand=${encodeURIComponent(brand.name)}`
+        }
+      }))
     };
-
-    // Sử dụng logo từ logoMap hoặc tạo placeholder text đơn giản
-    return logoMap[brandName] || '';
   };
 
   return (
-    <section className="py-16">
+    <section
+      className="py-16"
+      aria-labelledby="brand-section-title"
+      itemScope
+      itemType="https://schema.org/ItemList"
+    >
+      {/* Schema.org JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSchemaData()) }}
+      />
+
       <div className="container mx-auto px-4">
-        <SectionTitle 
+        <SectionTitle
           title="Thương Hiệu Nổi Tiếng"
           description="Chúng tôi phân phối đa dạng các loại phương tiện thương mại (xe tải, xe cẩu, mooc, xe đầu kéo) từ những thương hiệu uy tín, đảm bảo chất lượng và độ tin cậy."
         />
-        
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <nav
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"
+          aria-label="Danh sách thương hiệu xe"
+        >
           {brands.length > 0 ? (
-            brands.map(brand => (
+            brands.map((brand, index) => (
               <a
                 key={brand.id}
-                href={`/danh-muc-xe?brand=${brand.name}`}
+                href={`/danh-muc-xe?brand=${encodeURIComponent(brand.name)}`}
                 className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-center justify-center border border-gray-100 hover:border-primary/20 group min-h-[120px]"
+                title={`Xem các sản phẩm ${brand.name}`}
+                aria-label={`Thương hiệu ${brand.name}${brand.country ? ` - ${brand.country}` : ''}`}
+                itemScope
+                itemType="https://schema.org/Brand"
+                itemProp="itemListElement"
               >
+                <meta itemProp="position" content={String(index + 1)} />
                 <div className="flex flex-col items-center justify-center w-full">
-                  {getBrandLogo(brand.name) && !failedImages.has(brand.name) ? (
+                  {brand.logo && !failedImages.has(brand.name) ? (
                     <img
-                      src={getBrandLogo(brand.name)}
-                      alt={`Logo thương hiệu ${brand.name}`}
+                      src={brand.logo}
+                      alt={brand.logoAlt || `Logo thương hiệu ${brand.name} - Đại lý phân phối chính hãng tại Soosan Motor`}
                       className="w-[120px] h-[60px] object-contain group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
+                      width={120}
+                      height={60}
                       onError={() => handleImageError(brand.name)}
+                      itemProp="logo"
                     />
                   ) : (
                     <div className="w-[120px] h-[60px] flex items-center justify-center">
-                      <span className="text-base font-semibold text-gray-700 px-3 py-2 text-center group-hover:text-primary transition-colors">
+                      <span
+                        className="text-base font-semibold text-gray-700 px-3 py-2 text-center group-hover:text-primary transition-colors"
+                        itemProp="name"
+                      >
                         {brand.name}
                       </span>
                     </div>
+                  )}
+                  {brand.logo && !failedImages.has(brand.name) && (
+                    <span className="sr-only" itemProp="name">{brand.name}</span>
                   )}
                 </div>
               </a>
@@ -133,7 +183,7 @@ const BrandCategories = ({ trucks }: BrandCategoriesProps) => {
               Chưa có thương hiệu nào trong danh mục
             </p>
           )}
-        </div>
+        </nav>
       </div>
     </section>
   );

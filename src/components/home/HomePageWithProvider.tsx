@@ -16,6 +16,17 @@ import { Truck } from '@/models/TruckTypes';
 import type { Banner } from '../BannerCarousel';
 import type { SiteSettings } from '@/types/siteSettings';
 
+interface BrandData {
+  id: string;
+  name: string;
+  slug: string;
+  logo?: string;
+  logoAlt?: string;
+  description?: string;
+  country?: string;
+  website?: string;
+}
+
 interface HomePageWithProviderProps {
   featuredTrucks: Truck[];
   specializedCranes: Truck[];
@@ -29,6 +40,7 @@ interface HomePageWithProviderProps {
   enabledTypes: string[];
   banners?: Banner[];
   siteSettings?: Partial<SiteSettings>;
+  cmsBrands?: BrandData[];
 }
 
 const HomePageWithProvider: React.FC<HomePageWithProviderProps> = ({
@@ -43,7 +55,8 @@ const HomePageWithProvider: React.FC<HomePageWithProviderProps> = ({
   extraCategories,
   enabledTypes,
   banners,
-  siteSettings
+  siteSettings,
+  cmsBrands
 }) => {
   const isTypeEnabled = (type: string) => enabledTypes.includes(type);
   return (
@@ -112,7 +125,7 @@ const HomePageWithProvider: React.FC<HomePageWithProviderProps> = ({
                 <WeightCategories />
               </div>
 
-              <BrandCategories trucks={trucks} />
+              <BrandCategories trucks={trucks} cmsBrands={cmsBrands} />
 
               <TestimonialSection products={trucks} />
 

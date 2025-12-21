@@ -47,6 +47,26 @@ const bannersCollection = defineCollection({
   }),
 });
 
+// Brands Collection Schema (SEO-optimized for homepage "Thương Hiệu Nổi Tiếng" section)
+const brandsCollection = defineCollection({
+  type: 'data',
+  schema: z.object({
+    id: z.string(),
+    name: z.string(),
+    slug: z.string(),
+    logo: z.string().optional(),
+    logoAlt: z.string().optional(),
+    description: z.string().optional(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    country: z.string().optional(),
+    website: z.string().optional(),
+    foundedYear: z.number().optional(),
+    order: z.number().default(0),
+    isActive: z.boolean().default(true),
+  }),
+});
+
 // Products Collection Schema
 const productsCollection = defineCollection({
   type: 'data',
@@ -301,6 +321,7 @@ export const collections = {
   'categories': categoriesCollection,
   'blog-categories': blogCategoriesCollection,
   'banners': bannersCollection,
+  'brands': brandsCollection,
   'products': productsCollection,
   'blog': blogCollection,
   'settings': siteSettingsCollection,

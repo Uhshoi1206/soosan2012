@@ -24,6 +24,14 @@ const banners = await getActiveBanners();
 // Load site settings from CMS
 const siteSettingsEntry = await getEntry('settings', 'site-settings');
 const siteSettings = siteSettingsEntry?.data;
+
+// Load brands from CMS for homepage brand section
+import { getCollection } from 'astro:content';
+const brandsData = await getCollection('brands');
+const cmsBrands = brandsData
+  .filter(b => b.data.isActive)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(b => b.data);
 ---
 
 <BaseLayout
@@ -44,6 +52,7 @@ const siteSettings = siteSettingsEntry?.data;
     enabledTypes={enabledTypes}
     banners={banners}
     siteSettings={siteSettings}
+    cmsBrands={cmsBrands}
   />
 </BaseLayout>
 
