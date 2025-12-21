@@ -95,11 +95,14 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                 <td className="py-2 px-3 text-gray-600">Tải trọng</td>
                 <td className="py-2 px-3 font-medium">{truck.weightText}</td>
               </tr>
-              <tr className="border-b">
-                <td className="py-2 px-3 text-gray-600">Kích thước tổng thể (D×R×C)</td>
-                <td className="py-2 px-3 font-medium">{truck.dimensions}</td>
-              </tr>
-              {truck.insideDimension && (
+              {/* CHỈ hiển thị nếu KHÔNG có trailerSpec.dimensions để tránh duplicate */}
+              {!truck.trailerSpec?.dimensions && (
+                <tr className="border-b">
+                  <td className="py-2 px-3 text-gray-600">Kích thước tổng thể (D×R×C)</td>
+                  <td className="py-2 px-3 font-medium">{truck.dimensions}</td>
+                </tr>
+              )}
+              {truck.insideDimension && !truck.trailerSpec?.dimensions && (
                 <tr className="border-b">
                   <td className="py-2 px-3 text-gray-600">Kích thước lòng thùng (D×R×C)</td>
                   <td className="py-2 px-3 font-medium">{truck.insideDimension}</td>
