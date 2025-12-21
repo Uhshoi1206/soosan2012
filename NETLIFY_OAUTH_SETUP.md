@@ -9,7 +9,7 @@ https://soosan24112025.netlify.app/auth?provider=github&site_id=&scope=repo%2Cus
 
 ## Nguyên Nhân
 
-Config CMS đang có `site_domain: ""` và `base_url: ""`, khiến authentication callback không hoạt động.
+Config CMS đang có `site_domain: ""` và `base_url: ""`, khiến authentication callback không hoạt động
 
 ## Giải Pháp Đã Áp Dụng
 
