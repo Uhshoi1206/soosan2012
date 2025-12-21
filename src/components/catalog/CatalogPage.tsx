@@ -4,7 +4,7 @@ import FilterSidebar from '../FilterSidebar';
 import VehicleGrid from './VehicleGrid';
 import { Truck, TruckFilters, VehicleType } from '@/models/TruckTypes';
 import { useVehicleFiltering } from '@/hooks/useVehicleFiltering';
-import { getBoxTypeSlug } from '@/utils/slugify';
+import { getBoxTypeSlug, getTrailerTypeSlug } from '@/utils/slugify';
 
 interface CatalogPageProps {
   initialVehicles: Truck[];
@@ -21,7 +21,8 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
     maxWeight: null,
     vehicleType: null,
     search: initialSearchQuery || null,
-    boxType: null
+    boxType: null,
+    trailerType: null
   });
 
   useEffect(() => {
@@ -33,6 +34,7 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
       const minWeightParam = params.get('minWeight');
       const maxWeightParam = params.get('maxWeight');
       const boxTypeParam = params.get('boxType');
+      const trailerTypeParam = params.get('trailerType');
 
       if (typeParam) {
         setSelectedType(typeParam);
@@ -63,19 +65,25 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
       if (boxTypeParam) {
         setFilters(prev => ({ ...prev, boxType: boxTypeParam }));
       }
+
+      // Đọc trailerType từ URL (đã là slug không dấu)
+      if (trailerTypeParam) {
+        setFilters(prev => ({ ...prev, trailerType: trailerTypeParam }));
+      }
     }
   }, []);
 
   const handleTypeChange = (type: VehicleType) => {
     setSelectedType(type);
-    // Xóa boxType khi chuyển sang loại xe khác - người dùng sẽ chọn lại danh mục con nếu cần
-    setFilters(prev => ({ ...prev, vehicleType: type, boxType: null }));
+    // Xóa boxType và trailerType khi chuyển sang loại xe khác - người dùng sẽ chọn lại danh mục con nếu cần
+    setFilters(prev => ({ ...prev, vehicleType: type, boxType: null, trailerType: null }));
 
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       params.set('type', type);
-      // Xóa boxType khỏi URL khi chuyển tab
+      // Xóa boxType và trailerType khỏi URL khi chuyển tab
       params.delete('boxType');
+      params.delete('trailerType');
       const newUrl = `${window.location.pathname}?${params.toString()}`;
       window.history.pushState({}, '', newUrl);
     }
@@ -108,6 +116,7 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
         params.set('maxWeight', String(newFilters.maxWeight));
       }
       if (newFilters.boxType) params.set('boxType', newFilters.boxType);
+      if (newFilters.trailerType) params.set('trailerType', newFilters.trailerType);
 
       const newUrl = params.toString()
         ? `${window.location.pathname}?${params.toString()}`
@@ -125,7 +134,8 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
       maxWeight: null,
       vehicleType: null,
       search: null,
-      boxType: null
+      boxType: null,
+      trailerType: null
     };
     setFilters(emptyFilters);
     setSelectedType(null);
@@ -142,7 +152,8 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
     minWeight: filters.minWeight,
     maxWeight: filters.maxWeight,
     search: filters.search,
-    boxType: filters.boxType
+    boxType: filters.boxType,
+    trailerType: filters.trailerType
   });
 
   return (

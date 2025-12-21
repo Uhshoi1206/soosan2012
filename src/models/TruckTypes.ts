@@ -22,6 +22,7 @@ export interface TruckFilters {
   vehicleType: VehicleType | null;
   search: string | null;
   boxType: string | null;
+  trailerType: string | null;
 }
 
 // Chi tiết kết cấu thùng cho xe tải thùng đông lạnh, bảo ôn

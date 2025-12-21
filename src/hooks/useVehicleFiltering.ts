@@ -1,6 +1,6 @@
 
 import { Truck, VehicleType } from '@/models/TruckTypes';
-import { getBoxTypeFromSlug } from '@/utils/slugify';
+import { getBoxTypeFromSlug, getTrailerTypeFromSlug } from '@/utils/slugify';
 
 // Lưu trữ giá trị tối đa tải trọng
 const MAX_WEIGHT = 100;
@@ -13,6 +13,7 @@ export const useVehicleFiltering = (vehicles: Truck[], selectedType: VehicleType
   maxWeight: number | null;
   search: string | null;
   boxType?: string | null;
+  trailerType?: string | null;
 }) => {
   console.log("useVehicleFiltering được gọi với:", { selectedType, filters });
 
@@ -35,6 +36,16 @@ export const useVehicleFiltering = (vehicles: Truck[], selectedType: VehicleType
       const boxTypeValue = getBoxTypeFromSlug(filters.boxType);
       if (vehicle.boxType !== boxTypeValue) {
         console.log(`Xe ${vehicle.name} bị loại vì boxType ${vehicle.boxType} !== ${boxTypeValue}`);
+        return false;
+      }
+    }
+
+    // Lọc theo loại mooc (trailerType) - CHỈ ÁP DỤNG CHO SƠ MI RƠ MOOC
+    if (filters.trailerType && selectedType === 'mooc') {
+      // Chuyển đổi slug URL sang giá trị tiếng Việt để so sánh
+      const trailerTypeValue = getTrailerTypeFromSlug(filters.trailerType);
+      if (vehicle.trailerType !== trailerTypeValue) {
+        console.log(`Mooc ${vehicle.name} bị loại vì trailerType ${vehicle.trailerType} !== ${trailerTypeValue}`);
         return false;
       }
     }
