@@ -98,3 +98,76 @@ export function getAllBoxTypeSlugs(): string[] {
 export function getAllBoxTypes(): string[] {
   return Object.keys(boxTypeSlugMap);
 }
+
+/**
+ * TrailerType values mapping: Vietnamese with diacritics <-> ASCII slug
+ */
+const trailerTypeSlugMap: { [key: string]: string } = {
+  'ben': 'ben',
+  'sàn': 'san',
+  'sàn-rút': 'san-rut',
+  'lùn': 'lun',
+  'cổ-cò': 'co-co',
+  'xương': 'xuong',
+  'lửng': 'lung',
+  'lồng': 'long',
+  'rào': 'rao',
+  'xi-téc': 'xi-tec',
+  'bồn-xi-măng': 'bon-xi-mang',
+  'bồn-sắt': 'bon-sat',
+  'bồn-bột-mì': 'bon-bot-mi',
+  'đông-lạnh': 'dong-lanh',
+  'hút-chất-thải': 'hut-chat-thai',
+  'bồn-nh3': 'bon-nh3',
+  'bồn-ni-tơ': 'bon-ni-to',
+  'bồn-hóa-chất': 'bon-hoa-chat',
+  'bồn-bột-pvc': 'bon-bot-pvc',
+  'bồn-nhựa-đường': 'bon-nhua-duong',
+  'bồn-thức-ăn': 'bon-thuc-an',
+  'bồn-lpg': 'bon-lpg',
+  'bồn-methanol': 'bon-methanol',
+  'bồn-hạt-nhựa': 'bon-hat-nhua',
+  'bồn-co2': 'bon-co2',
+  'bồn-ethylene-glycol': 'bon-ethylene-glycol'
+};
+
+// Reverse mapping: slug -> Vietnamese value
+const slugToTrailerTypeMap: { [key: string]: string } = Object.entries(trailerTypeSlugMap).reduce(
+  (acc, [vn, slug]) => ({ ...acc, [slug]: vn }),
+  {}
+);
+
+/**
+ * Convert trailerType value (Vietnamese with diacritics) to URL-safe slug
+ */
+export function getTrailerTypeSlug(trailerType: string | undefined): string {
+  if (!trailerType) return '';
+  return trailerTypeSlugMap[trailerType] || removeVietnameseDiacritics(trailerType.toLowerCase());
+}
+
+/**
+ * Convert URL slug back to trailerType value (Vietnamese with diacritics)
+ */
+export function getTrailerTypeFromSlug(slug: string | undefined): string {
+  if (!slug) return '';
+  // First check if it's already a Vietnamese value
+  if (Object.keys(trailerTypeSlugMap).includes(slug)) {
+    return slug;
+  }
+  // Then try to convert from slug
+  return slugToTrailerTypeMap[slug] || slug;
+}
+
+/**
+ * Get all available trailerType slugs for validation
+ */
+export function getAllTrailerTypeSlugs(): string[] {
+  return Object.values(trailerTypeSlugMap);
+}
+
+/**
+ * Get all available trailerType values (Vietnamese)
+ */
+export function getAllTrailerTypes(): string[] {
+  return Object.keys(trailerTypeSlugMap);
+}

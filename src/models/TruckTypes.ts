@@ -408,6 +408,8 @@ export function getTrailerTypeName(type?: string): string {
       return 'Mooc Xương';
     case 'lửng':
       return 'Mooc Lửng';
+    case 'lồng':
+      return 'Mooc Lồng';
     case 'rào':
       return 'Mooc Rào';
     case 'xi-téc':
@@ -418,6 +420,32 @@ export function getTrailerTypeName(type?: string): string {
       return 'Mooc Bồn Chở Bụi Sắt';
     case 'bồn-bột-mì':
       return 'Mooc Bồn Chở Bột Mì';
+    case 'đông-lạnh':
+      return 'Mooc Đông Lạnh';
+    case 'hút-chất-thải':
+      return 'Mooc Hút Chất Thải';
+    case 'bồn-nh3':
+      return 'Mooc Bồn Chở NH3 Lỏng';
+    case 'bồn-ni-tơ':
+      return 'Mooc Bồn Chở Ni Tơ Lỏng';
+    case 'bồn-hóa-chất':
+      return 'Mooc Bồn Chở Hóa Chất';
+    case 'bồn-bột-pvc':
+      return 'Mooc Bồn Chở Bột Nhựa PVC';
+    case 'bồn-nhựa-đường':
+      return 'Mooc Bồn Chở Nhựa Đường';
+    case 'bồn-thức-ăn':
+      return 'Mooc Bồn Chở Thức Ăn Chăn Nuôi';
+    case 'bồn-lpg':
+      return 'Mooc Bồn Chở Khí LPG';
+    case 'bồn-methanol':
+      return 'Mooc Bồn Chở Methanol';
+    case 'bồn-hạt-nhựa':
+      return 'Mooc Bồn Chở Hạt Nhựa';
+    case 'bồn-co2':
+      return 'Mooc Bồn Chở CO2 Lỏng';
+    case 'bồn-ethylene-glycol':
+      return 'Mooc Bồn Chở Ethylene Glycol';
     default:
       return '';
   }
