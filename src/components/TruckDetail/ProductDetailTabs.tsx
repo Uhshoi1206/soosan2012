@@ -696,6 +696,12 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.systems.hydraulicSystem}</td>
                         </tr>
                       )}
+                      {truck.trailerSpec.systems.vacuumPump && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600">Bơm hút chân không</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.systems.vacuumPump}</td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
                 </>
@@ -723,6 +729,24 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                         <tr className="border-b">
                           <td className="py-2 px-3 text-gray-600 w-1/3">Dải nhiệt độ</td>
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.temperatureRange}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.capacity && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Dung tích bồn</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.capacity}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.waveBarrier && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Vách chắn sóng</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.waveBarrier}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.valveSystem && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Hệ thống van</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.valveSystem}</td>
                         </tr>
                       )}
                       {truck.trailerSpec.body.floorMaterial && (
