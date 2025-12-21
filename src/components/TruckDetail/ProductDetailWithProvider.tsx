@@ -17,7 +17,7 @@ import CostEstimator from './CostEstimator';
 import useRelatedBlogForTruck from '@/hooks/useRelatedBlogForTruck';
 import { CalendarDays, Clock } from 'lucide-react';
 import type { SiteSettings } from '@/types/siteSettings';
-import { getBoxTypeSlug } from '@/utils/slugify';
+import { getBoxTypeSlug, getTrailerTypeSlug } from '@/utils/slugify';
 
 interface ProductDetailWithProviderProps {
   truck: Truck;
@@ -66,6 +66,7 @@ const ProductDetailWithProvider: React.FC<ProductDetailWithProviderProps> = ({
 
   const vehicleTypeName = getVehicleTypeName(truck.type);
   const boxTypeName = truck.boxType ? getBoxTypeName(truck.boxType) : '';
+  const trailerTypeName = truck.trailerType ? getTrailerTypeName(truck.trailerType) : '';
 
   return (
     <SiteSettingsProvider settings={siteSettings}>
@@ -88,6 +89,14 @@ const ProductDetailWithProvider: React.FC<ProductDetailWithProviderProps> = ({
                     <span className="mx-2">›</span>
                     <a href={`/danh-muc-xe?type=${truck.type}&boxType=${getBoxTypeSlug(truck.boxType)}`} className="text-gray-600 hover:text-primary">
                       {boxTypeName}
+                    </a>
+                  </>
+                )}
+                {truck.trailerType && (
+                  <>
+                    <span className="mx-2">›</span>
+                    <a href={`/danh-muc-xe?type=${truck.type}&trailerType=${getTrailerTypeSlug(truck.trailerType)}`} className="text-gray-600 hover:text-primary">
+                      {trailerTypeName}
                     </a>
                   </>
                 )}
@@ -156,6 +165,9 @@ const ProductDetailWithProvider: React.FC<ProductDetailWithProviderProps> = ({
                     )}
                     {truck.boxType && (
                       <Badge variant="outline" className="bg-blue-50">{boxTypeName}</Badge>
+                    )}
+                    {truck.trailerType && (
+                      <Badge variant="outline" className="bg-green-50">{trailerTypeName}</Badge>
                     )}
                   </div>
 
