@@ -20,6 +20,20 @@ interface BrandCategoriesProps {
   cmsBrands?: BrandData[];
 }
 
+// Normalize brand name: remove Vietnamese diacritics, lowercase, trim
+// "Trần Tú" → "tran tu", "HYUNDAI" → "hyundai"
+const normalizeBrandName = (name: string): string => {
+  return name
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
+    .replace(/đ/g, 'd')
+    .replace(/Đ/g, 'd')
+    .replace(/[^a-z0-9\s]/g, '') // Remove special chars except spaces
+    .replace(/\s+/g, ' '); // Normalize spaces
+};
+
 const BrandCategories = ({ trucks, cmsBrands = [] }: BrandCategoriesProps) => {
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
@@ -29,7 +43,7 @@ const BrandCategories = ({ trucks, cmsBrands = [] }: BrandCategoriesProps) => {
     trucks.forEach(truck => {
       const brands = Array.isArray(truck.brand) ? truck.brand : [truck.brand];
       brands.filter(Boolean).forEach(b => {
-        const key = String(b).trim().toLowerCase();
+        const key = normalizeBrandName(String(b));
         if (!key) return;
         if (!map.has(key)) map.set(key, String(b).trim());
       });
@@ -44,9 +58,9 @@ const BrandCategories = ({ trucks, cmsBrands = [] }: BrandCategoriesProps) => {
   const getMergedBrands = (): BrandData[] => {
     const cmsMap = new Map<string, BrandData>();
 
-    // Index CMS brands by lowercase name
+    // Index CMS brands by normalized name (ignore diacritics & case)
     cmsBrands.forEach(brand => {
-      cmsMap.set(brand.name.toLowerCase(), brand);
+      cmsMap.set(normalizeBrandName(brand.name), brand);
     });
 
     // Merge: use CMS data if available, create basic entry for product-only brands
@@ -56,17 +70,17 @@ const BrandCategories = ({ trucks, cmsBrands = [] }: BrandCategoriesProps) => {
     // First, add all CMS brands
     cmsBrands.forEach(brand => {
       merged.push(brand);
-      seenKeys.add(brand.name.toLowerCase());
+      seenKeys.add(normalizeBrandName(brand.name));
     });
 
-    // Then, add product brands not in CMS
+    // Then, add product brands not in CMS (using normalized matching)
     productBrands.forEach(brandName => {
-      const key = brandName.toLowerCase();
+      const key = normalizeBrandName(brandName);
       if (!seenKeys.has(key)) {
         merged.push({
-          id: key,
+          id: key.replace(/\s+/g, '-'),
           name: brandName,
-          slug: key,
+          slug: key.replace(/\s+/g, '-'),
         });
         seenKeys.add(key);
       }
@@ -75,8 +89,8 @@ const BrandCategories = ({ trucks, cmsBrands = [] }: BrandCategoriesProps) => {
     // Sort by order (CMS brands first), then alphabetically
     return merged.sort((a, b) => {
       // CMS brands with order come first
-      const aHasOrder = cmsBrands.some(cb => cb.name.toLowerCase() === a.name.toLowerCase());
-      const bHasOrder = cmsBrands.some(cb => cb.name.toLowerCase() === b.name.toLowerCase());
+      const aHasOrder = cmsBrands.some(cb => normalizeBrandName(cb.name) === normalizeBrandName(a.name));
+      const bHasOrder = cmsBrands.some(cb => normalizeBrandName(cb.name) === normalizeBrandName(b.name));
 
       if (aHasOrder && !bHasOrder) return -1;
       if (!aHasOrder && bHasOrder) return 1;
