@@ -414,7 +414,7 @@ export function getTrailerTypeName(type?: string): string {
     case 'rào':
       return 'Mooc Rào';
     case 'xi-téc':
-      return 'Mooc Xi Téc Chở Xăng Dầu';
+      return 'Mooc Xi Téc';
     case 'bồn-xi-măng':
       return 'Mooc Bồn Chở Xi Măng Rời';
     case 'bồn-sắt':
