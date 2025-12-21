@@ -767,6 +767,12 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.floorMaterial}</td>
                         </tr>
                       )}
+                      {truck.trailerSpec.body.designTemperature && (
+                        <tr className="border-b bg-blue-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Nhiệt độ thiết kế</td>
+                          <td className="py-2 px-3 font-medium text-blue-700">{truck.trailerSpec.body.designTemperature}</td>
+                        </tr>
+                      )}
                       {truck.trailerSpec.body.sideWallMaterial && (
                         <tr className="border-b">
                           <td className="py-2 px-3 text-gray-600">Vật liệu thành thùng</td>
