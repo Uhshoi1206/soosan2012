@@ -1107,6 +1107,76 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.tailLift && (
+            <>
+              <h4 className="font-bold text-lg bg-blue-100 p-2 rounded mb-3 text-blue-800">Thông số bửng nâng</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.tailLift.type && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Loại bửng nâng</td>
+                      <td className="py-2 px-3 font-medium">{truck.tailLift.type}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.liftCapacity && (
+                    <tr className="border-b bg-blue-50">
+                      <td className="py-2 px-3 text-gray-600">Sức nâng</td>
+                      <td className="py-2 px-3 font-medium text-blue-700">{truck.tailLift.liftCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.platformSize && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Kích thước mặt bàn</td>
+                      <td className="py-2 px-3 font-medium">{truck.tailLift.platformSize}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.liftHeight && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Chiều cao nâng</td>
+                      <td className="py-2 px-3 font-medium">{truck.tailLift.liftHeight}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.powerSource && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Nguồn điện</td>
+                      <td className="py-2 px-3 font-medium">{truck.tailLift.powerSource}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.controlSystem && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống điều khiển</td>
+                      <td className="py-2 px-3 font-medium">{truck.tailLift.controlSystem}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.liftTime && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Thời gian nâng/hạ</td>
+                      <td className="py-2 px-3 font-medium">{truck.tailLift.liftTime}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.hydraulicPump && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Bơm thủy lực</td>
+                      <td className="py-2 px-3 font-medium">{truck.tailLift.hydraulicPump}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.hydraulicFluid && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Dầu thủy lực</td>
+                      <td className="py-2 px-3 font-medium">{truck.tailLift.hydraulicFluid}</td>
+                    </tr>
+                  )}
+                  {truck.tailLift.safetyFeatures && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600">Tính năng an toàn</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.tailLift.safetyFeatures}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>
