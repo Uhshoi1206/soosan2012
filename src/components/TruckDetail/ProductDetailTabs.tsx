@@ -27,6 +27,42 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
   const renderSpecTable = (specs: Record<string, any>, title?: string) => {
     if (!specs || Object.keys(specs).length === 0) return null;
 
+    // Mapping English keys to Vietnamese labels
+    const displayNames: Record<string, string> = {
+      // Thùng kín (closedBox)
+      wallMaterial: 'Vật liệu vách thùng',
+      floorMaterial: 'Vật liệu sàn',
+      sideHeight: 'Chiều cao thành bên',
+      doorType: 'Loại cửa',
+      insulation: 'Cách nhiệt',
+      reinforcement: 'Gia cường',
+      // Thùng bạt (tarpaulinBox)
+      frameStructure: 'Cấu trúc khung',
+      tarpaulinMaterial: 'Vật liệu bạt',
+      tarpaulinThickness: 'Độ dày bạt',
+      frameType: 'Loại khung',
+      sideAccess: 'Khả năng bốc dỡ',
+      coverType: 'Loại mui phủ',
+      roofType: 'Loại mui',
+      // Thùng bảo ôn (insulatedBox)
+      insulationMaterial: 'Vật liệu cách nhiệt',
+      insulationThickness: 'Độ dày cách nhiệt',
+      temperatureRange: 'Dải nhiệt độ',
+      // Thùng lạnh (coolingBox)
+      coolingUnit: 'Thiết bị làm lạnh',
+      coolingCapacity: 'Công suất làm lạnh',
+      minTemperature: 'Nhiệt độ tối thiểu',
+      maxTemperature: 'Nhiệt độ tối đa',
+      // Common fields
+      material: 'Vật liệu',
+      dimensions: 'Kích thước',
+      length: 'Chiều dài',
+      width: 'Chiều rộng',
+      height: 'Chiều cao',
+      capacity: 'Dung tích',
+      fuelTankCapacity: 'Dung tích bình nhiên liệu'
+    };
+
     return (
       <div className="mb-6">
         {title && <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">{title}</h4>}
@@ -34,9 +70,10 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
           <tbody>
             {Object.entries(specs).map(([key, value]) => {
               if (!value || key === 'length' || key === 'width' || key === 'height') return null;
+              const displayName = displayNames[key] || key;
               return (
                 <tr key={key} className="border-b">
-                  <td className="py-2 px-3 text-gray-600 w-1/3">{key}</td>
+                  <td className="py-2 px-3 text-gray-600 w-1/3">{displayName}</td>
                   <td className="py-2 px-3 font-medium">{String(value)}</td>
                 </tr>
               );
