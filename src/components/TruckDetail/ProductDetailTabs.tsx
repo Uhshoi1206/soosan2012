@@ -60,7 +60,8 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
       width: 'Chiều rộng',
       height: 'Chiều cao',
       capacity: 'Dung tích',
-      fuelTankCapacity: 'Dung tích bình nhiên liệu'
+      fuelTankCapacity: 'Dung tích bình nhiên liệu',
+      volume: 'Thể tích'
     };
 
     return (
@@ -1207,6 +1208,52 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                     <tr className="border-b bg-green-50">
                       <td className="py-2 px-3 text-gray-600">Tính năng an toàn</td>
                       <td className="py-2 px-3 font-medium text-green-700">{truck.tailLift.safetyFeatures}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
+          {truck.palletSystem && (
+            <>
+              <h4 className="font-bold text-lg bg-purple-100 p-2 rounded mb-3 text-purple-800">Hệ thống chở pallet</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.palletSystem.rollerSystem && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Hệ thống con lăn</td>
+                      <td className="py-2 px-3 font-medium">{truck.palletSystem.rollerSystem}</td>
+                    </tr>
+                  )}
+                  {truck.palletSystem.rollerMaterial && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Vật liệu con lăn</td>
+                      <td className="py-2 px-3 font-medium">{truck.palletSystem.rollerMaterial}</td>
+                    </tr>
+                  )}
+                  {truck.palletSystem.palletCapacity && (
+                    <tr className="border-b bg-purple-50">
+                      <td className="py-2 px-3 text-gray-600">Sức chứa pallet</td>
+                      <td className="py-2 px-3 font-medium text-purple-700">{truck.palletSystem.palletCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.palletSystem.palletAnchors && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Móc neo pallet</td>
+                      <td className="py-2 px-3 font-medium">{truck.palletSystem.palletAnchors}</td>
+                    </tr>
+                  )}
+                  {truck.palletSystem.palletStops && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Thanh chắn pallet</td>
+                      <td className="py-2 px-3 font-medium">{truck.palletSystem.palletStops}</td>
+                    </tr>
+                  )}
+                  {truck.palletSystem.antiStatic && (
+                    <tr className="border-b bg-yellow-50">
+                      <td className="py-2 px-3 text-gray-600">Chống tĩnh điện ESD</td>
+                      <td className="py-2 px-3 font-medium text-yellow-700">{truck.palletSystem.antiStatic}</td>
                     </tr>
                   )}
                 </tbody>
