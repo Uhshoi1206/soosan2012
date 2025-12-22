@@ -1313,6 +1313,46 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.crateSystem && (
+            <>
+              <h4 className="font-bold text-lg bg-amber-100 p-2 rounded mb-3 text-amber-800">Hệ thống chở két chai</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.crateSystem.crateCapacity && (
+                    <tr className="border-b bg-amber-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Sức chứa két</td>
+                      <td className="py-2 px-3 font-medium text-amber-700">{truck.crateSystem.crateCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.crateSystem.stackingHeight && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Chiều cao xếp</td>
+                      <td className="py-2 px-3 font-medium">{truck.crateSystem.stackingHeight}</td>
+                    </tr>
+                  )}
+                  {truck.crateSystem.antiSlipFloor && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Sàn chống trượt</td>
+                      <td className="py-2 px-3 font-medium">{truck.crateSystem.antiSlipFloor}</td>
+                    </tr>
+                  )}
+                  {truck.crateSystem.retainingBars && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Thanh chắn giữ hàng</td>
+                      <td className="py-2 px-3 font-medium">{truck.crateSystem.retainingBars}</td>
+                    </tr>
+                  )}
+                  {truck.crateSystem.ventilation && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Thông gió</td>
+                      <td className="py-2 px-3 font-medium">{truck.crateSystem.ventilation}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>
