@@ -1261,6 +1261,58 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.wingBoxSystem && (
+            <>
+              <h4 className="font-bold text-lg bg-orange-100 p-2 rounded mb-3 text-orange-800">Hệ thống cánh dơi</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.wingBoxSystem.wingType && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Loại cánh</td>
+                      <td className="py-2 px-3 font-medium">{truck.wingBoxSystem.wingType}</td>
+                    </tr>
+                  )}
+                  {truck.wingBoxSystem.openingAngle && (
+                    <tr className="border-b bg-orange-50">
+                      <td className="py-2 px-3 text-gray-600">Góc mở cánh</td>
+                      <td className="py-2 px-3 font-medium text-orange-700">{truck.wingBoxSystem.openingAngle}</td>
+                    </tr>
+                  )}
+                  {truck.wingBoxSystem.hydraulicCylinder && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Xi lanh thủy lực</td>
+                      <td className="py-2 px-3 font-medium">{truck.wingBoxSystem.hydraulicCylinder}</td>
+                    </tr>
+                  )}
+                  {truck.wingBoxSystem.hydraulicPump && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Bơm thủy lực</td>
+                      <td className="py-2 px-3 font-medium">{truck.wingBoxSystem.hydraulicPump}</td>
+                    </tr>
+                  )}
+                  {truck.wingBoxSystem.controlSystem && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống điều khiển</td>
+                      <td className="py-2 px-3 font-medium">{truck.wingBoxSystem.controlSystem}</td>
+                    </tr>
+                  )}
+                  {truck.wingBoxSystem.openingTime && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Thời gian mở/đóng</td>
+                      <td className="py-2 px-3 font-medium">{truck.wingBoxSystem.openingTime}</td>
+                    </tr>
+                  )}
+                  {truck.wingBoxSystem.safetyFeatures && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600">Tính năng an toàn</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.wingBoxSystem.safetyFeatures}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>
