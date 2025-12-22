@@ -556,6 +556,18 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.dimensions.capacity}</td>
                         </tr>
                       )}
+                      {truck.trailerSpec.dimensions.cargoBoxDimensions && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600">Kích thước lòng thùng</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.dimensions.cargoBoxDimensions}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.dimensions.numberOfLevels && (
+                        <tr className="border-b bg-blue-50">
+                          <td className="py-2 px-3 text-gray-600">Số tầng</td>
+                          <td className="py-2 px-3 font-medium text-blue-700">{truck.trailerSpec.dimensions.numberOfLevels}</td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
                 </>
@@ -583,6 +595,12 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                         <tr className="border-b">
                           <td className="py-2 px-3 text-gray-600">Khối lượng toàn bộ</td>
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.weight.grossWeight}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.weight.kingpinLoad && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600">Tải trọng lên chốt kéo</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.weight.kingpinLoad}</td>
                         </tr>
                       )}
                     </tbody>
@@ -747,6 +765,30 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                         <tr className="border-b">
                           <td className="py-2 px-3 text-gray-600 w-1/3">Vật liệu thùng</td>
                           <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.material}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.ramp && (
+                        <tr className="border-b bg-green-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Cầu dẫn xe</td>
+                          <td className="py-2 px-3 font-medium text-green-700">{truck.trailerSpec.body.ramp}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.tieDowns && (
+                        <tr className="border-b bg-blue-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Móc chằng buộc</td>
+                          <td className="py-2 px-3 font-medium text-blue-700">{truck.trailerSpec.body.tieDowns}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.sideRails && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Lan can bảo vệ</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.sideRails}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.wheelChocks && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Chặn bánh xe</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.wheelChocks}</td>
                         </tr>
                       )}
                       {truck.trailerSpec.body.insulation && (
