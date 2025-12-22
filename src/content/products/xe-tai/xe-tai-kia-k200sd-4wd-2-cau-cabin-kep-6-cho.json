@@ -79,15 +79,14 @@
         "Ghế bọc nỉ cao cấp",
         "Đồng hồ hiển thị đa thông tin"
     ],
-    "specifications": {
-        "fuelTankCapacity": "60-65 lít",
-        "trackWidthFront": "1.505 mm",
-        "trackWidthRear": "1.460 mm"
-    },
-    "tarpaulinBox": {
+    "fuelTankCapacity": "60-65 lít",
+    "trackWidthFront": "1.505 mm",
+    "trackWidthRear": "1.460 mm",
+    "flatbedBox": {
         "floorMaterial": "Thép tấm chống trượt",
         "sideHeight": "410 mm",
-        "sideType": "Thành lửng tháo rời"
+        "sideType": "Thành lửng tháo rời",
+        "frameMaterial": "Khung thép sơn tĩnh điện"
     },
     "order": 8
 }
