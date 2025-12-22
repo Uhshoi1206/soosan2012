@@ -731,6 +731,18 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                   <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thùng/thân xe</h4>
                   <table className="w-full border-collapse border mb-6">
                     <tbody>
+                      {truck.trailerSpec.body.frameType && (
+                        <tr className="border-b">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Loại khung</td>
+                          <td className="py-2 px-3 font-medium">{truck.trailerSpec.body.frameType}</td>
+                        </tr>
+                      )}
+                      {truck.trailerSpec.body.containerLocks && (
+                        <tr className="border-b bg-blue-50">
+                          <td className="py-2 px-3 text-gray-600 w-1/3">Chốt hãm container</td>
+                          <td className="py-2 px-3 font-medium text-blue-700">{truck.trailerSpec.body.containerLocks}</td>
+                        </tr>
+                      )}
                       {truck.trailerSpec.body.material && (
                         <tr className="border-b">
                           <td className="py-2 px-3 text-gray-600 w-1/3">Vật liệu thùng</td>
