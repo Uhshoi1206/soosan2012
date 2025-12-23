@@ -1521,6 +1521,76 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.ladderSystem && (
+            <>
+              <h4 className="font-bold text-lg bg-red-100 p-2 rounded mb-3 text-red-800">Hệ thống thang cứu hộ</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.ladderSystem.maxHeight && (
+                    <tr className="border-b bg-red-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Chiều cao nâng tối đa</td>
+                      <td className="py-2 px-3 font-medium text-red-700">{truck.ladderSystem.maxHeight}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.maxRadius && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Bán kính làm việc</td>
+                      <td className="py-2 px-3 font-medium">{truck.ladderSystem.maxRadius}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.elevationAngle && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Góc nâng thang</td>
+                      <td className="py-2 px-3 font-medium">{truck.ladderSystem.elevationAngle}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.rotationAngle && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Góc quay thang</td>
+                      <td className="py-2 px-3 font-medium">{truck.ladderSystem.rotationAngle}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.ladderSections && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Số đốt thang</td>
+                      <td className="py-2 px-3 font-medium">{truck.ladderSystem.ladderSections}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.basketCapacity && (
+                    <tr className="border-b bg-red-50">
+                      <td className="py-2 px-3 text-gray-600">Sức nâng giỏ</td>
+                      <td className="py-2 px-3 font-medium text-red-700">{truck.ladderSystem.basketCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.basketControls && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Điều khiển giỏ</td>
+                      <td className="py-2 px-3 font-medium">{truck.ladderSystem.basketControls}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.outriggerSpan && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Khẩu độ chân chống</td>
+                      <td className="py-2 px-3 font-medium">{truck.ladderSystem.outriggerSpan}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.groundSlope && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Độ nghiêng mặt đất cho phép</td>
+                      <td className="py-2 px-3 font-medium">{truck.ladderSystem.groundSlope}</td>
+                    </tr>
+                  )}
+                  {truck.ladderSystem.hydraulicPressure && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Áp suất thủy lực</td>
+                      <td className="py-2 px-3 font-medium">{truck.ladderSystem.hydraulicPressure}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>

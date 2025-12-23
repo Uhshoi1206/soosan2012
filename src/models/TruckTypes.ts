@@ -390,6 +390,8 @@ export function getBoxTypeName(type?: string): string {
       return 'Xe Bơm Bê Tông';
     case 'chở-gia-súc':
       return 'Thùng Chở Gia Súc';
+    case 'chuyên-dùng':
+      return 'Xe Chuyên Dùng';
     default:
       return '';
   }
