@@ -6,6 +6,8 @@
     "model": "SR60",
     "price": 15800000000,
     "priceText": "15.8 tỷ",
+    "weightText": "63 tấn (khối lượng vận hành)",
+    "weight": 63000,
     "length": 5200,
     "width": 3000,
     "height": 23500,
