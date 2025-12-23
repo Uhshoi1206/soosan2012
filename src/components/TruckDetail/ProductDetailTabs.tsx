@@ -1405,6 +1405,58 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.motorcycleCarrierSystem && (
+            <>
+              <h4 className="font-bold text-lg bg-red-100 p-2 rounded mb-3 text-red-800">Hệ thống chở mô tô xe máy</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.motorcycleCarrierSystem.deckLayout && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Cấu trúc thùng</td>
+                      <td className="py-2 px-3 font-medium">{truck.motorcycleCarrierSystem.deckLayout}</td>
+                    </tr>
+                  )}
+                  {truck.motorcycleCarrierSystem.deckDimensions && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Kích thước mỗi tầng</td>
+                      <td className="py-2 px-3 font-medium">{truck.motorcycleCarrierSystem.deckDimensions}</td>
+                    </tr>
+                  )}
+                  {truck.motorcycleCarrierSystem.motorcycleCapacity && (
+                    <tr className="border-b bg-red-50">
+                      <td className="py-2 px-3 text-gray-600">Sức chứa xe máy</td>
+                      <td className="py-2 px-3 font-medium text-red-700">{truck.motorcycleCarrierSystem.motorcycleCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.motorcycleCarrierSystem.liftCapacity && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Bửng nâng</td>
+                      <td className="py-2 px-3 font-medium">{truck.motorcycleCarrierSystem.liftCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.motorcycleCarrierSystem.liftPlatformSize && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Kích thước mặt bửng</td>
+                      <td className="py-2 px-3 font-medium">{truck.motorcycleCarrierSystem.liftPlatformSize}</td>
+                    </tr>
+                  )}
+                  {truck.motorcycleCarrierSystem.tieDownSystem && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống chằng buộc</td>
+                      <td className="py-2 px-3 font-medium">{truck.motorcycleCarrierSystem.tieDownSystem}</td>
+                    </tr>
+                  )}
+                  {truck.motorcycleCarrierSystem.antiSlipFloor && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Sàn chống trượt</td>
+                      <td className="py-2 px-3 font-medium">{truck.motorcycleCarrierSystem.antiSlipFloor}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>
