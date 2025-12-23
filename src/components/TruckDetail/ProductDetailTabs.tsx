@@ -158,7 +158,7 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                   <td className="py-2 px-3 font-medium">{truck.groundClearance} mm</td>
                 </tr>
               )}
-              {truck.turningRadius && (
+              {truck.turningRadius !== undefined && truck.turningRadius > 0 && (
                 <tr className="border-b">
                   <td className="py-2 px-3 text-gray-600">Bán kính quay vòng tối thiểu</td>
                   <td className="py-2 px-3 font-medium">{truck.turningRadius} m</td>
