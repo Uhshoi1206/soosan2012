@@ -1353,6 +1353,58 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.compactorSystem && (
+            <>
+              <h4 className="font-bold text-lg bg-green-100 p-2 rounded mb-3 text-green-800">Hệ thống cuốn ép rác</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.compactorSystem.compactorCapacity && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Dung tích thùng ép</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.compactorSystem.compactorCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.compactorSystem.compressionRatio && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Tỷ lệ ép</td>
+                      <td className="py-2 px-3 font-medium">{truck.compactorSystem.compressionRatio}</td>
+                    </tr>
+                  )}
+                  {truck.compactorSystem.maxPressure && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Áp suất ép tối đa</td>
+                      <td className="py-2 px-3 font-medium">{truck.compactorSystem.maxPressure}</td>
+                    </tr>
+                  )}
+                  {truck.compactorSystem.hydraulicPump && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Bơm thủy lực</td>
+                      <td className="py-2 px-3 font-medium">{truck.compactorSystem.hydraulicPump}</td>
+                    </tr>
+                  )}
+                  {truck.compactorSystem.leachateCapacity && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Bồn chứa nước rác</td>
+                      <td className="py-2 px-3 font-medium">{truck.compactorSystem.leachateCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.compactorSystem.controlSystem && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống điều khiển</td>
+                      <td className="py-2 px-3 font-medium">{truck.compactorSystem.controlSystem}</td>
+                    </tr>
+                  )}
+                  {truck.compactorSystem.safetyFeatures && (
+                    <tr className="border-b bg-yellow-50">
+                      <td className="py-2 px-3 text-gray-600">Tính năng an toàn</td>
+                      <td className="py-2 px-3 font-medium text-yellow-700">{truck.compactorSystem.safetyFeatures}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>
