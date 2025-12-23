@@ -1457,6 +1457,70 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.drillingSystem && (
+            <>
+              <h4 className="font-bold text-lg bg-orange-100 p-2 rounded mb-3 text-orange-800">Thông số hệ thống khoan</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.drillingSystem.maxDiameter && (
+                    <tr className="border-b bg-orange-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Đường kính khoan tối đa</td>
+                      <td className="py-2 px-3 font-medium text-orange-700">{truck.drillingSystem.maxDiameter}</td>
+                    </tr>
+                  )}
+                  {truck.drillingSystem.maxDepth && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Độ sâu khoan tối đa</td>
+                      <td className="py-2 px-3 font-medium">{truck.drillingSystem.maxDepth}</td>
+                    </tr>
+                  )}
+                  {truck.drillingSystem.maxTorque && (
+                    <tr className="border-b bg-orange-50">
+                      <td className="py-2 px-3 text-gray-600">Mô-men xoắn tối đa</td>
+                      <td className="py-2 px-3 font-medium text-orange-700">{truck.drillingSystem.maxTorque}</td>
+                    </tr>
+                  )}
+                  {truck.drillingSystem.rotationSpeed && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Tốc độ quay</td>
+                      <td className="py-2 px-3 font-medium">{truck.drillingSystem.rotationSpeed}</td>
+                    </tr>
+                  )}
+                  {truck.drillingSystem.crowdForce && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Lực đẩy xuống</td>
+                      <td className="py-2 px-3 font-medium">{truck.drillingSystem.crowdForce}</td>
+                    </tr>
+                  )}
+                  {truck.drillingSystem.pullbackForce && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Lực kéo lên</td>
+                      <td className="py-2 px-3 font-medium">{truck.drillingSystem.pullbackForce}</td>
+                    </tr>
+                  )}
+                  {truck.drillingSystem.kellyBarType && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Loại cần Kelly</td>
+                      <td className="py-2 px-3 font-medium">{truck.drillingSystem.kellyBarType}</td>
+                    </tr>
+                  )}
+                  {truck.drillingSystem.hydraulicPressure && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Áp suất thủy lực</td>
+                      <td className="py-2 px-3 font-medium">{truck.drillingSystem.hydraulicPressure}</td>
+                    </tr>
+                  )}
+                  {truck.drillingSystem.feedStroke && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hành trình đẩy</td>
+                      <td className="py-2 px-3 font-medium">{truck.drillingSystem.feedStroke}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>
