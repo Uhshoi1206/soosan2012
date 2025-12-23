@@ -1654,34 +1654,76 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>
               <table className="w-full border-collapse border mb-6">
                 <tbody>
-                  {truck.tankSpec.capacityText && (
+                  {(truck.tankSpec.tankCapacity || truck.tankSpec.capacityText) && (
                     <tr className="border-b">
                       <td className="py-2 px-3 text-gray-600 w-1/3">Dung tích</td>
-                      <td className="py-2 px-3 font-medium">{truck.tankSpec.capacityText}</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.tankCapacity || truck.tankSpec.capacityText}</td>
+                    </tr>
+                  )}
+                  {(truck.tankSpec.tankMaterial || truck.tankSpec.material) && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Vật liệu</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.tankMaterial || truck.tankSpec.material}</td>
+                    </tr>
+                  )}
+                  {truck.tankSpec.tankDimensions && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Kích thước bồn</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.tankDimensions}</td>
                     </tr>
                   )}
                   {truck.tankSpec.compartments && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Số ngăn</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Số ngăn</td>
                       <td className="py-2 px-3 font-medium">{truck.tankSpec.compartments}</td>
                     </tr>
                   )}
-                  {truck.tankSpec.material && (
+                  {(truck.tankSpec.thickness || truck.tankSpec.workingPressure) && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Vật liệu</td>
-                      <td className="py-2 px-3 font-medium">{truck.tankSpec.material}</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">{truck.tankSpec.workingPressure ? 'Áp suất làm việc' : 'Độ dày'}</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.workingPressure || truck.tankSpec.thickness}</td>
                     </tr>
                   )}
-                  {truck.tankSpec.thickness && (
+                  {truck.tankSpec.weldingType && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Độ dày</td>
-                      <td className="py-2 px-3 font-medium">{truck.tankSpec.thickness}</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Kiểu hàn</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.weldingType}</td>
                     </tr>
                   )}
-                  {truck.tankSpec.safetyEquipment && (
+                  {truck.tankSpec.innerSurface && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Thiết bị an toàn</td>
-                      <td className="py-2 px-3 font-medium">{truck.tankSpec.safetyEquipment}</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Bề mặt trong</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.innerSurface}</td>
+                    </tr>
+                  )}
+                  {truck.tankSpec.pumpType && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Loại bơm</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.pumpType}</td>
+                    </tr>
+                  )}
+                  {truck.tankSpec.pumpFlow && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Lưu lượng bơm</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.pumpFlow}</td>
+                    </tr>
+                  )}
+                  {truck.tankSpec.dischargeHose && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Ống xả</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.dischargeHose}</td>
+                    </tr>
+                  )}
+                  {(truck.tankSpec.safetyValve || truck.tankSpec.safetyEquipment) && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Thiết bị an toàn</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.safetyValve || truck.tankSpec.safetyEquipment}</td>
+                    </tr>
+                  )}
+                  {truck.tankSpec.groundingSystem && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Hệ thống tiếp đất</td>
+                      <td className="py-2 px-3 font-medium">{truck.tankSpec.groundingSystem}</td>
                     </tr>
                   )}
                 </tbody>
