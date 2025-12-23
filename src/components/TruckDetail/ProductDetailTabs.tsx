@@ -1591,6 +1591,64 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.wireDispenserId && (
+            <>
+              <h4 className="font-bold text-lg bg-green-100 p-2 rounded mb-3 text-green-800">Hệ thống rải dây thép gai</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.wireDispenserId.deploymentSpeed && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Tốc độ rải</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.wireDispenserId.deploymentSpeed}</td>
+                    </tr>
+                  )}
+                  {truck.wireDispenserId.wireCapacity && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Sức chứa cuộn dây</td>
+                      <td className="py-2 px-3 font-medium">{truck.wireDispenserId.wireCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.wireDispenserId.wireTypes && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Loại dây tương thích</td>
+                      <td className="py-2 px-3 font-medium">{truck.wireDispenserId.wireTypes}</td>
+                    </tr>
+                  )}
+                  {truck.wireDispenserId.barrierLayers && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Số lớp hàng rào</td>
+                      <td className="py-2 px-3 font-medium">{truck.wireDispenserId.barrierLayers}</td>
+                    </tr>
+                  )}
+                  {truck.wireDispenserId.barrierHeight && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600">Chiều cao hàng rào</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.wireDispenserId.barrierHeight}</td>
+                    </tr>
+                  )}
+                  {truck.wireDispenserId.hydraulicWinches && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Tời thủy lực</td>
+                      <td className="py-2 px-3 font-medium">{truck.wireDispenserId.hydraulicWinches}</td>
+                    </tr>
+                  )}
+                  {truck.wireDispenserId.controlSystem && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Hệ thống điều khiển</td>
+                      <td className="py-2 px-3 font-medium">{truck.wireDispenserId.controlSystem}</td>
+                    </tr>
+                  )}
+                  {truck.wireDispenserId.workLights && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Đèn công tác</td>
+                      <td className="py-2 px-3 font-medium">{truck.wireDispenserId.workLights}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số bồn xi téc</h4>
