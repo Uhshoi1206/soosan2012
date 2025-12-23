@@ -1,0 +1,24 @@
+{
+    "id": "may-cong-trinh",
+    "name": "Máy Công Trình",
+    "slug": "may-cong-trinh",
+    "description": "Máy khoan cọc nhồi, máy đóng cọc, máy ép cọc, máy xúc, máy ủi và các loại thiết bị xây dựng chuyên dụng cho thi công nền móng, cầu đường, nhà cao tầng, hạ tầng đô thị",
+    "keywords": [
+        "máy công trình",
+        "máy khoan cọc nhồi",
+        "máy đóng cọc",
+        "máy ép cọc",
+        "máy xúc",
+        "máy ủi",
+        "thiết bị xây dựng",
+        "construction equipment",
+        "piling machine",
+        "excavator",
+        "bulldozer",
+        "foundation equipment",
+        "bored pile drilling",
+        "thiết bị nền móng"
+    ],
+    "isHidden": false,
+    "order": 5
+}
