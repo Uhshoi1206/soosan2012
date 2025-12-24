@@ -236,6 +236,61 @@ export interface TractorSpecification {
   electricSystem?: string;       // Hệ thống điện
 }
 
+// Chi tiết về hệ thống khoan (máy khoan cọc nhồi)
+export interface DrillingSystemSpec {
+  maxDiameter?: string;        // Đường kính khoan tối đa
+  maxDepth?: string;           // Độ sâu khoan tối đa
+  maxTorque?: string;          // Mô-men xoắn tối đa
+  rotationSpeed?: string;      // Tốc độ quay
+  crowdForce?: string;         // Lực đẩy xuống
+  pullbackForce?: string;      // Lực kéo lên
+  kellyBarType?: string;       // Loại cần Kelly
+  hydraulicPressure?: string;  // Áp suất thủy lực
+  feedStroke?: string;         // Hành trình cấp
+}
+
+// Chi tiết về hệ thống thang cứu hộ
+export interface LadderSystemSpec {
+  maxHeight?: string;          // Chiều cao nâng tối đa
+  maxRadius?: string;          // Bán kính làm việc
+  elevationAngle?: string;     // Góc nâng thang
+  rotationAngle?: string;      // Góc quay thang
+  ladderSections?: string;     // Số đốt thang
+  basketCapacity?: string;     // Sức nâng giỏ
+  basketControls?: string;     // Điều khiển giỏ
+  outriggerSpan?: string;      // Khẩu độ chân chống
+  groundSlope?: string;        // Độ nghiêng cho phép
+  hydraulicPressure?: string;  // Áp suất thủy lực
+  pumpCapacity?: string;       // Lưu lượng bơm
+}
+
+// Chi tiết về hệ thống rải dây thép gai
+export interface WireDispenserSpec {
+  deploymentSpeed?: string;    // Tốc độ rải
+  wireCapacity?: string;       // Sức chứa dây
+  wireTypes?: string;          // Loại dây tương thích
+  barrierLayers?: string;      // Số lớp hàng rào
+  barrierHeight?: string;      // Chiều cao hàng rào
+  hydraulicWinches?: string;   // Tời thủy lực
+  controlSystem?: string;      // Hệ thống điều khiển
+  workLights?: string;         // Đèn chiếu sáng
+}
+
+// Chi tiết về hệ thống nâng người (xe nâng người làm việc trên cao)
+export interface AerialPlatformSpec {
+  workingHeight?: string;      // Chiều cao làm việc
+  horizontalReach?: string;    // Tầm vươn ngang
+  platformCapacity?: string;   // Tải trọng giỏ
+  platformSize?: string;       // Kích thước giỏ
+  boomElevation?: string;      // Góc nâng boom
+  slewing?: string;            // Góc quay
+  boomType?: string;           // Loại boom
+  insulationRating?: string;   // Điện áp cách điện
+  outriggerSpan?: string;      // Khẩu độ chân chống
+  controlSystem?: string;      // Hệ thống điều khiển
+  safetyFeatures?: string;     // Tính năng an toàn
+}
+
 export interface Truck {
   id: string;
   name: string;
@@ -273,7 +328,7 @@ export interface Truck {
   emissionStandard?: string;  // Tiêu chuẩn khí thải
 
   // Chi tiết chuyên biệt theo loại xe
-  boxType?: 'đông-lạnh' | 'bảo-ôn' | 'kín' | 'bạt' | 'lửng' | 'xi-téc';
+  boxType?: 'đông-lạnh' | 'bảo-ôn' | 'kín' | 'bạt' | 'lửng' | 'xi-téc' | 'chuyên-dùng';
   craneType?: 'cẩu-rời' | 'cẩu-gắn-xe';
   trailerType?: 'ben' | 'sàn' | 'sàn-rút' | 'lùn' | 'cổ-cò' | 'xương' | 'lửng' | 'rào' | 'xi-téc' | 'bồn-xi-măng' | 'bồn-sắt' | 'bồn-bột-mì';
 
@@ -287,6 +342,12 @@ export interface Truck {
   craneSpec?: CraneSpecification;
   trailerSpec?: TrailerSpecification;
   tractorSpec?: TractorSpecification;
+
+  // Thông số kỹ thuật chuyên dụng (specialized equipment)
+  drillingSystem?: DrillingSystemSpec;      // Máy khoan cọc nhồi
+  ladderSystem?: LadderSystemSpec;          // Xe thang cứu hộ
+  wireDispenserId?: WireDispenserSpec;      // Xe rải dây thép gai
+  aerialPlatformSpec?: AerialPlatformSpec;  // Xe nâng người trên cao
 
   // Thông số kỹ thuật phổ biến
   engineType?: string;
