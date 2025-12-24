@@ -1269,6 +1269,106 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.glassRackSpec && (
+            <>
+              <h4 className="font-bold text-lg bg-sky-100 p-2 rounded mb-3 text-sky-800">Thông số giá chở kính chữ A</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.glassRackSpec.rackType && (
+                    <tr className="border-b bg-sky-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Loại giá</td>
+                      <td className="py-2 px-3 font-medium text-sky-700">{truck.glassRackSpec.rackType}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.rackDimension && (
+                    <tr className="border-b bg-sky-50">
+                      <td className="py-2 px-3 text-gray-600">Kích thước giá</td>
+                      <td className="py-2 px-3 font-medium text-sky-700">{truck.glassRackSpec.rackDimension}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.rackMaterial && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Vật liệu khung</td>
+                      <td className="py-2 px-3 font-medium">{truck.glassRackSpec.rackMaterial}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.surfaceFinish && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Xử lý bề mặt</td>
+                      <td className="py-2 px-3 font-medium">{truck.glassRackSpec.surfaceFinish}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.rackAngle && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Góc nghiêng giá</td>
+                      <td className="py-2 px-3 font-medium">{truck.glassRackSpec.rackAngle}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.loadCapacityPerSide && (
+                    <tr className="border-b bg-amber-50">
+                      <td className="py-2 px-3 text-gray-600">Tải trọng mỗi bên</td>
+                      <td className="py-2 px-3 font-medium text-amber-700">{truck.glassRackSpec.loadCapacityPerSide}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.maxGlassSize && (
+                    <tr className="border-b bg-amber-50">
+                      <td className="py-2 px-3 text-gray-600">Kích thước kính tối đa</td>
+                      <td className="py-2 px-3 font-medium text-amber-700">{truck.glassRackSpec.maxGlassSize}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.paddingMaterial && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600">Vật liệu lót đệm</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.glassRackSpec.paddingMaterial}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.separatorMaterial && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600">Vật liệu ngăn cách</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.glassRackSpec.separatorMaterial}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.strapType && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Loại dây đai</td>
+                      <td className="py-2 px-3 font-medium">{truck.glassRackSpec.strapType}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.strapQuantity && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Số lượng dây đai</td>
+                      <td className="py-2 px-3 font-medium">{truck.glassRackSpec.strapQuantity}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.tieDownPoints && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Số điểm neo</td>
+                      <td className="py-2 px-3 font-medium">{truck.glassRackSpec.tieDownPoints}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.crossBracing && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Thanh giằng chéo</td>
+                      <td className="py-2 px-3 font-medium">{truck.glassRackSpec.crossBracing}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.endStops && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Thanh chắn đầu/cuối</td>
+                      <td className="py-2 px-3 font-medium">{truck.glassRackSpec.endStops}</td>
+                    </tr>
+                  )}
+                  {truck.glassRackSpec.certifications && (
+                    <tr className="border-b bg-blue-50">
+                      <td className="py-2 px-3 text-gray-600">Chứng nhận</td>
+                      <td className="py-2 px-3 font-medium text-blue-700">{truck.glassRackSpec.certifications}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.coolingBox && (
             <>
               <h4 className="font-bold text-lg bg-gray-100 p-2 rounded mb-3">Thông số làm lạnh</h4>
