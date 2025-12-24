@@ -28,13 +28,13 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const typeParam = params.get('loai-xe') || params.get('type') as VehicleType | null;
-      const brandParam = params.get('thuong-hieu') || params.get('brand');
-      const searchParam = params.get('tim-kiem') || params.get('search') || params.get('q');
-      const minWeightParam = params.get('tai-trong-tu') || params.get('minWeight');
-      const maxWeightParam = params.get('tai-trong-den') || params.get('maxWeight');
-      const boxTypeParam = params.get('loai-thung') || params.get('boxType');
-      const trailerTypeParam = params.get('loai-mooc') || params.get('trailerType');
+      const typeParam = params.get('loai-xe') as VehicleType | null;
+      const brandParam = params.get('thuong-hieu');
+      const searchParam = params.get('tim-kiem') || params.get('q');
+      const minWeightParam = params.get('tai-trong-tu');
+      const maxWeightParam = params.get('tai-trong-den');
+      const boxTypeParam = params.get('loai-thung');
+      const trailerTypeParam = params.get('loai-mooc');
 
       if (typeParam) {
         setSelectedType(typeParam as VehicleType);
@@ -84,10 +84,6 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
       // Xóa loại thùng và loại mooc khỏi URL khi chuyển tab
       params.delete('loai-thung');
       params.delete('loai-mooc');
-      // Xóa cả params tiếng Anh cũ nếu còn
-      params.delete('type');
-      params.delete('boxType');
-      params.delete('trailerType');
       const newUrl = `${window.location.pathname}?${params.toString()}`;
       window.history.pushState({}, '', newUrl);
     }
