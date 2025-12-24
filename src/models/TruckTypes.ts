@@ -304,6 +304,25 @@ export interface AerialPlatformSpec {
   safetyFeatures?: string;     // Tính năng an toàn
 }
 
+// Chi tiết về giá chữ A chở kính (xe chở kính, đá hoa cương)
+export interface GlassRackSpecification {
+  rackType?: string;              // Loại giá (chữ A, chữ L, etc.)
+  rackDimension?: string;         // Kích thước giá
+  rackMaterial?: string;          // Vật liệu khung giá
+  surfaceFinish?: string;         // Xử lý bề mặt (sơn tĩnh điện, mạ kẽm)
+  rackAngle?: string;             // Góc nghiêng giá
+  loadCapacityPerSide?: string;   // Tải trọng mỗi bên
+  maxGlassSize?: string;          // Kích thước kính tối đa
+  paddingMaterial?: string;       // Vật liệu lót đệm
+  separatorMaterial?: string;     // Vật liệu ngăn cách giữa các tấm
+  strapType?: string;             // Loại dây đai
+  strapQuantity?: string;         // Số lượng dây đai
+  tieDownPoints?: string;         // Số điểm neo
+  crossBracing?: string;          // Thanh giằng chéo
+  endStops?: string;              // Thanh chắn đầu/cuối
+  certifications?: string;        // Chứng nhận
+}
+
 // Chi tiết về hệ thống hút chân không (xe hút bụi công nghiệp)
 export interface VacuumSystemSpec {
   tankCapacity?: string;       // Dung tích bồn
@@ -385,6 +404,7 @@ export interface Truck {
   wireDispenserId?: WireDispenserSpec;      // Xe rải dây thép gai
   aerialPlatformSpec?: AerialPlatformSpec;  // Xe nâng người trên cao
   vacuumSystem?: VacuumSystemSpec;          // Xe hút bụi công nghiệp
+  glassRackSpec?: GlassRackSpecification;   // Xe chở kính giá chữ A
 
   // Thông số kỹ thuật phổ biến
   engineType?: string;
