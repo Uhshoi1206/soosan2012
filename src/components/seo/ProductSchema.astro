@@ -350,7 +350,7 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 2,
       "name": categoryName || product.type.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-      "item": `${siteUrl}/danh-muc-xe?type=${product.type}`
+      "item": `${siteUrl}/danh-muc-xe?loai-xe=${product.type}`
     },
     {
       "@type": "ListItem",

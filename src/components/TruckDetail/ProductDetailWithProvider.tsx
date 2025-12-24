@@ -81,13 +81,13 @@ const ProductDetailWithProvider: React.FC<ProductDetailWithProviderProps> = ({
                 <span className="mx-2">›</span>
                 <a href="/danh-muc-xe" className="text-gray-600 hover:text-primary">Danh mục xe</a>
                 <span className="mx-2">›</span>
-                <a href={`/danh-muc-xe?type=${truck.type}`} className="text-gray-600 hover:text-primary">
+                <a href={`/danh-muc-xe?loai-xe=${truck.type}`} className="text-gray-600 hover:text-primary">
                   {vehicleTypeName}
                 </a>
                 {truck.boxType && (
                   <>
                     <span className="mx-2">›</span>
-                    <a href={`/danh-muc-xe?type=${truck.type}&boxType=${getBoxTypeSlug(truck.boxType)}`} className="text-gray-600 hover:text-primary">
+                    <a href={`/danh-muc-xe?loai-xe=${truck.type}&loai-thung=${getBoxTypeSlug(truck.boxType)}`} className="text-gray-600 hover:text-primary">
                       {boxTypeName}
                     </a>
                   </>
@@ -95,7 +95,7 @@ const ProductDetailWithProvider: React.FC<ProductDetailWithProviderProps> = ({
                 {truck.trailerType && (
                   <>
                     <span className="mx-2">›</span>
-                    <a href={`/danh-muc-xe?type=${truck.type}&trailerType=${getTrailerTypeSlug(truck.trailerType)}`} className="text-gray-600 hover:text-primary">
+                    <a href={`/danh-muc-xe?loai-xe=${truck.type}&loai-mooc=${getTrailerTypeSlug(truck.trailerType)}`} className="text-gray-600 hover:text-primary">
                       {trailerTypeName}
                     </a>
                   </>

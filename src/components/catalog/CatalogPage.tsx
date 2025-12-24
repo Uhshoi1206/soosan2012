@@ -28,17 +28,17 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const typeParam = params.get('type') as VehicleType | null;
-      const brandParam = params.get('brand');
-      const searchParam = params.get('search') || params.get('q');
-      const minWeightParam = params.get('minWeight');
-      const maxWeightParam = params.get('maxWeight');
-      const boxTypeParam = params.get('boxType');
-      const trailerTypeParam = params.get('trailerType');
+      const typeParam = params.get('loai-xe') || params.get('type') as VehicleType | null;
+      const brandParam = params.get('thuong-hieu') || params.get('brand');
+      const searchParam = params.get('tim-kiem') || params.get('search') || params.get('q');
+      const minWeightParam = params.get('tai-trong-tu') || params.get('minWeight');
+      const maxWeightParam = params.get('tai-trong-den') || params.get('maxWeight');
+      const boxTypeParam = params.get('loai-thung') || params.get('boxType');
+      const trailerTypeParam = params.get('loai-mooc') || params.get('trailerType');
 
       if (typeParam) {
-        setSelectedType(typeParam);
-        setFilters(prev => ({ ...prev, vehicleType: typeParam }));
+        setSelectedType(typeParam as VehicleType);
+        setFilters(prev => ({ ...prev, vehicleType: typeParam as VehicleType }));
       }
 
       if (brandParam) {
@@ -80,8 +80,12 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
 
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      params.set('type', type);
-      // Xóa boxType và trailerType khỏi URL khi chuyển tab
+      params.set('loai-xe', type);
+      // Xóa loại thùng và loại mooc khỏi URL khi chuyển tab
+      params.delete('loai-thung');
+      params.delete('loai-mooc');
+      // Xóa cả params tiếng Anh cũ nếu còn
+      params.delete('type');
       params.delete('boxType');
       params.delete('trailerType');
       const newUrl = `${window.location.pathname}?${params.toString()}`;
@@ -108,15 +112,15 @@ const CatalogPage: React.FC<CatalogPageProps> = ({ initialVehicles, initialSearc
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams();
 
-      if (newFilters.vehicleType) params.set('type', newFilters.vehicleType);
-      if (newFilters.brand) params.set('brand', newFilters.brand);
-      if (newFilters.search) params.set('search', newFilters.search);
+      if (newFilters.vehicleType) params.set('loai-xe', newFilters.vehicleType);
+      if (newFilters.brand) params.set('thuong-hieu', newFilters.brand);
+      if (newFilters.search) params.set('tim-kiem', newFilters.search);
       if (newFilters.minWeight !== null && newFilters.maxWeight !== null) {
-        params.set('minWeight', String(newFilters.minWeight));
-        params.set('maxWeight', String(newFilters.maxWeight));
+        params.set('tai-trong-tu', String(newFilters.minWeight));
+        params.set('tai-trong-den', String(newFilters.maxWeight));
       }
-      if (newFilters.boxType) params.set('boxType', newFilters.boxType);
-      if (newFilters.trailerType) params.set('trailerType', newFilters.trailerType);
+      if (newFilters.boxType) params.set('loai-thung', newFilters.boxType);
+      if (newFilters.trailerType) params.set('loai-mooc', newFilters.trailerType);
 
       const newUrl = params.toString()
         ? `${window.location.pathname}?${params.toString()}`

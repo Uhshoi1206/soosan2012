@@ -73,7 +73,7 @@ const HomePageWithProvider: React.FC<HomePageWithProviderProps> = ({
                   vehicles={featuredTrucks}
                   title="Xe Tải"
                   description="Các dòng xe tải được nhiều khách hàng tin dùng, đa dạng tải trọng và thương hiệu"
-                  viewAllUrl="/danh-muc-xe?type=xe-tai"
+                  viewAllUrl="/danh-muc-xe?loai-xe=xe-tai"
                   viewAllText="Xem tất cả xe tải"
                 />
               )}
@@ -83,7 +83,7 @@ const HomePageWithProvider: React.FC<HomePageWithProviderProps> = ({
                   vehicles={specializedCranes}
                   title="Cẩu"
                   description="Các dòng xe cẩu chuyên dụng, đa dạng tải trọng và thương hiệu"
-                  viewAllUrl="/danh-muc-xe?type=xe-cau"
+                  viewAllUrl="/danh-muc-xe?loai-xe=xe-cau"
                   viewAllText="Xem tất cả cẩu"
                 />
               )}
@@ -93,7 +93,7 @@ const HomePageWithProvider: React.FC<HomePageWithProviderProps> = ({
                   vehicles={semiTrailers}
                   title="Sơ Mi Rơ Mooc"
                   description="Các dòng mooc chuyên dụng, đa dạng loại và thương hiệu"
-                  viewAllUrl="/danh-muc-xe?type=mooc"
+                  viewAllUrl="/danh-muc-xe?loai-xe=mooc"
                   viewAllText="Xem tất cả sơ mi rơ mooc"
                 />
               )}
@@ -103,7 +103,7 @@ const HomePageWithProvider: React.FC<HomePageWithProviderProps> = ({
                   vehicles={tractors}
                   title="Xe Đầu Kéo"
                   description="Các dòng xe đầu kéo, đa dạng công suất và thương hiệu"
-                  viewAllUrl="/danh-muc-xe?type=dau-keo"
+                  viewAllUrl="/danh-muc-xe?loai-xe=dau-keo"
                   viewAllText="Xem tất cả xe đầu kéo"
                 />
               )}
@@ -115,7 +115,7 @@ const HomePageWithProvider: React.FC<HomePageWithProviderProps> = ({
                     vehicles={trucks.filter(t => t.type === cat.data.id)}
                     title={cat.data.name}
                     description={cat.data.description || `Các dòng ${cat.data.name.toLowerCase()} chuyên dụng, đa dạng mẫu mã`}
-                    viewAllUrl={`/danh-muc-xe?type=${cat.data.id}`}
+                    viewAllUrl={`/danh-muc-xe?loai-xe=${cat.data.id}`}
                     viewAllText={`Xem tất cả ${cat.data.name.toLowerCase()}`}
                   />
                 )
