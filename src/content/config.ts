@@ -178,6 +178,10 @@ const productsCollection = defineCollection({
     craneSpec: z.record(z.any()).optional(),
     trailerSpec: z.record(z.any()).optional(),
     tractorSpec: z.record(z.any()).optional(),
+    drillingSystem: z.record(z.any()).optional(),
+    ladderSystem: z.record(z.any()).optional(),
+    wireDispenserId: z.record(z.any()).optional(),
+    aerialPlatformSpec: z.record(z.any()).optional(),
 
     // Additional specs
     specifications: z.record(z.any()).optional(),
