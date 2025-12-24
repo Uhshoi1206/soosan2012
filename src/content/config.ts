@@ -182,6 +182,7 @@ const productsCollection = defineCollection({
     ladderSystem: z.record(z.any()).optional(),
     wireDispenserId: z.record(z.any()).optional(),
     aerialPlatformSpec: z.record(z.any()).optional(),
+    vacuumSystem: z.record(z.any()).optional(),
 
     // Additional specs
     specifications: z.record(z.any()).optional(),

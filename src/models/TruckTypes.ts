@@ -291,6 +291,28 @@ export interface AerialPlatformSpec {
   safetyFeatures?: string;     // Tính năng an toàn
 }
 
+// Chi tiết về hệ thống hút chân không (xe hút bụi công nghiệp)
+export interface VacuumSystemSpec {
+  tankCapacity?: string;       // Dung tích bồn
+  tankMaterial?: string;       // Vật liệu bồn
+  tankDimensions?: string;     // Kích thước bồn
+  vacuumLevel?: string;        // Độ chân không
+  airFlowRate?: string;        // Lưu lượng khí
+  vacuumPump?: string;         // Bơm chân không
+  pumpDrive?: string;          // Dẫn động bơm
+  blowbackPressure?: string;   // Áp suất đẩy ngược
+  suctionDistance?: string;    // Khoảng cách hút
+  fillTime?: string;           // Thời gian hút đầy
+  filterType?: string;         // Loại lọc
+  filterStages?: string;       // Số tầng lọc
+  filterArea?: string;         // Diện tích lọc
+  filterCleaning?: string;     // Làm sạch lọc
+  dischargeDoor?: string;      // Cửa xả
+  liftingAngle?: string;       // Góc nâng bồn
+  suctionHose?: string;        // Ống hút
+  hoseReel?: string;           // Tời cuộn ống
+}
+
 export interface Truck {
   id: string;
   name: string;
@@ -348,6 +370,7 @@ export interface Truck {
   ladderSystem?: LadderSystemSpec;          // Xe thang cứu hộ
   wireDispenserId?: WireDispenserSpec;      // Xe rải dây thép gai
   aerialPlatformSpec?: AerialPlatformSpec;  // Xe nâng người trên cao
+  vacuumSystem?: VacuumSystemSpec;          // Xe hút bụi công nghiệp
 
   // Thông số kỹ thuật phổ biến
   engineType?: string;

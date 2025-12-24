@@ -1806,6 +1806,124 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
               </table>
             </>
           )}
+
+          {truck.vacuumSystem && (
+            <>
+              <h4 className="font-bold text-lg bg-amber-100 p-2 rounded mb-3 text-amber-800">Hệ thống hút chân không</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.vacuumSystem.tankCapacity && (
+                    <tr className="border-b bg-amber-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Dung tích bồn</td>
+                      <td className="py-2 px-3 font-medium text-amber-700">{truck.vacuumSystem.tankCapacity}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.vacuumLevel && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Độ chân không</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.vacuumLevel}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.airFlowRate && (
+                    <tr className="border-b bg-amber-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Lưu lượng khí</td>
+                      <td className="py-2 px-3 font-medium text-amber-700">{truck.vacuumSystem.airFlowRate}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.vacuumPump && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Bơm chân không</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.vacuumPump}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.pumpDrive && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Dẫn động bơm</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.pumpDrive}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.filterType && (
+                    <tr className="border-b bg-amber-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Loại lọc</td>
+                      <td className="py-2 px-3 font-medium text-amber-700">{truck.vacuumSystem.filterType}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.filterStages && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Số tầng lọc</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.filterStages}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.filterArea && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Diện tích lọc</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.filterArea}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.filterCleaning && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Làm sạch lọc</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.filterCleaning}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.tankMaterial && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Vật liệu bồn</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.tankMaterial}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.tankDimensions && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Kích thước bồn</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.tankDimensions}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.suctionDistance && (
+                    <tr className="border-b bg-amber-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Khoảng cách hút</td>
+                      <td className="py-2 px-3 font-medium text-amber-700">{truck.vacuumSystem.suctionDistance}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.fillTime && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Thời gian hút đầy</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.fillTime}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.blowbackPressure && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Áp suất đẩy ngược</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.blowbackPressure}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.dischargeDoor && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Cửa xả</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.dischargeDoor}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.liftingAngle && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Góc nâng bồn</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.liftingAngle}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.suctionHose && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Ống hút</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.suctionHose}</td>
+                    </tr>
+                  )}
+                  {truck.vacuumSystem.hoseReel && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Tời cuộn ống</td>
+                      <td className="py-2 px-3 font-medium">{truck.vacuumSystem.hoseReel}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
         </div>
       </TabsContent>
 
