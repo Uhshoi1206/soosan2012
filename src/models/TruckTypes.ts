@@ -106,19 +106,32 @@ export interface FlatbedStructure {
 
 // Chi tiết về bồn xi téc
 export interface TankSpecification {
-  capacity?: number;
+  capacity?: number | string;   // Dung tích (có thể là số hoặc text)
   capacityText?: string;
   compartments?: number;
-  material?: string;
-  thickness?: string;
-  valveSystem?: string;
+  material?: string;            // Vật liệu bồn (Inox 316L, etc.)
+  thickness?: string;           // Độ dày thành bồn
+  tankDimension?: string;       // Kích thước bồn (ĐK x Dài)
+  designPressure?: string;      // Áp suất thiết kế
+  testPressure?: string;        // Áp suất thử nghiệm
+  workingTemperature?: string;  // Nhiệt độ làm việc
+  baffles?: string;             // Tấm chắn sóng bên trong
+  manholeSize?: string;         // Đường kính lỗ đôm
+  valveSystem?: string;         // Hệ thống van
+  valveType?: string;           // Loại van (van bướm, etc.)
   pressureRating?: string;
-  dischargingSystem?: string;
+  dischargingSystem?: string;   // Hệ thống xả
+  dischargePipe?: string;       // Đường ống xả
+  pumpType?: string;            // Loại bơm
+  pumpFlowRate?: string;        // Lưu lượng bơm
+  flowMeter?: string;           // Đồng hồ đo lưu lượng
   liningMaterial?: string;      // Vật liệu lót trong
   safetyEquipment?: string;     // Thiết bị an toàn
+  safetyFeatures?: string;      // Tính năng an toàn
   insulationPresent?: boolean;  // Có cách nhiệt không
   heatingSystem?: string;       // Hệ thống làm nóng
   measurementSystem?: string;   // Hệ thống đo lường
+  certifications?: string;      // Tiêu chuẩn chứng nhận
 }
 
 // Chi tiết về cẩu
