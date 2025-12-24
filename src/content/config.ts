@@ -76,7 +76,8 @@ const productsCollection = defineCollection({
     name: z.string(),
     slug: z.string(),
     brand: z.union([z.string(), z.array(z.string())]),
-    type: z.string(), // category key
+    type: z.string(), // category key (primary)
+    secondaryType: z.string().optional(), // secondary category key (for products that appear in multiple categories)
     model: z.string().optional(),
 
     // Pricing

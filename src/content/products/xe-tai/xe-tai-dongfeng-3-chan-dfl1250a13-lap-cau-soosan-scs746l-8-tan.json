@@ -14,6 +14,7 @@
     "dimensions": "11.900 x 2.500 x 3.820 mm",
     "insideDimension": "8.080 x 2.385 x 650 mm",
     "type": "xe-tai",
+    "secondaryType": "xe-cau",
     "boxType": "xe-tải-gắn-cẩu",
     "isNew": true,
     "isHot": true,

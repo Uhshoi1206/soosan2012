@@ -21,10 +21,12 @@ export const useVehicleFiltering = (vehicles: Truck[], selectedType: VehicleType
   const uniqueVehicles = [...new Map(vehicles.map(item => [item.id, item])).values()];
   let filteredVehicles = [...uniqueVehicles];
 
-  // Lọc theo loại xe
+  // Lọc theo loại xe (bao gồm cả secondaryType)
   if (selectedType) {
     console.log(`Lọc theo loại xe: ${selectedType}`);
-    filteredVehicles = filteredVehicles.filter(vehicle => vehicle.type === selectedType);
+    filteredVehicles = filteredVehicles.filter(vehicle =>
+      vehicle.type === selectedType || vehicle.secondaryType === selectedType
+    );
   }
   console.log(`Sau khi lọc theo loại xe: ${filteredVehicles.length} xe`);
 

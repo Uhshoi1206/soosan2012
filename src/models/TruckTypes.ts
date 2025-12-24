@@ -327,6 +327,7 @@ export interface Truck {
   height: number;
   dimensions: string;
   type: VehicleType;
+  secondaryType?: VehicleType; // Secondary category for products appearing in multiple listings
   isNew?: boolean;
   isHot?: boolean;
   stockStatus?: 'in-stock' | 'out-of-stock' | 'pre-order' | 'discontinued';
