@@ -184,6 +184,7 @@ const productsCollection = defineCollection({
     wireDispenserId: z.record(z.any()).optional(),
     aerialPlatformSpec: z.record(z.any()).optional(),
     vacuumSystem: z.record(z.any()).optional(),
+    glassRackSpec: z.record(z.any()).optional(),
 
     // Additional specs
     specifications: z.record(z.any()).optional(),
