@@ -1163,6 +1163,106 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
             </>
           )}
 
+          {truck.manBasketSpec && (
+            <>
+              <h4 className="font-bold text-lg bg-orange-100 p-2 rounded mb-3 text-orange-800">Thông số giỏ nâng người</h4>
+              <table className="w-full border-collapse border mb-6">
+                <tbody>
+                  {truck.manBasketSpec.model && (
+                    <tr className="border-b bg-orange-50">
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Model giỏ</td>
+                      <td className="py-2 px-3 font-medium text-orange-700">{truck.manBasketSpec.model}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.size && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Kích thước giỏ</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.size}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.capacity && (
+                    <tr className="border-b bg-orange-50">
+                      <td className="py-2 px-3 text-gray-600">Tải trọng giỏ</td>
+                      <td className="py-2 px-3 font-medium text-orange-700">{truck.manBasketSpec.capacity}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.persons && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Số người</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.persons}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.material && (
+                    <tr className="border-b bg-yellow-50">
+                      <td className="py-2 px-3 text-gray-600">Vật liệu</td>
+                      <td className="py-2 px-3 font-medium text-yellow-700">{truck.manBasketSpec.material}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.insulationRating && (
+                    <tr className="border-b bg-yellow-50">
+                      <td className="py-2 px-3 text-gray-600">Khả năng cách điện</td>
+                      <td className="py-2 px-3 font-medium text-yellow-700">{truck.manBasketSpec.insulationRating}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.insulationResistance && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Điện trở cách điện</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.insulationResistance}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.floor && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Sàn giỏ</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.floor}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.railing && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Lan can</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.railing}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.safetyHook && (
+                    <tr className="border-b bg-red-50">
+                      <td className="py-2 px-3 text-gray-600">Điểm móc dây an toàn</td>
+                      <td className="py-2 px-3 font-medium text-red-700">{truck.manBasketSpec.safetyHook}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.weight && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Trọng lượng giỏ</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.weight}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.connection && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Kết nối với cẩu</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.connection}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.toolHolder && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Giá dụng cụ</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.toolHolder}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.certification && (
+                    <tr className="border-b bg-green-50">
+                      <td className="py-2 px-3 text-gray-600">Chứng nhận</td>
+                      <td className="py-2 px-3 font-medium text-green-700">{truck.manBasketSpec.certification}</td>
+                    </tr>
+                  )}
+                  {truck.manBasketSpec.color && (
+                    <tr className="border-b">
+                      <td className="py-2 px-3 text-gray-600">Màu sắc</td>
+                      <td className="py-2 px-3 font-medium">{truck.manBasketSpec.color}</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </>
+          )}
+
           {truck.tankSpec && (
             <>
               <h4 className="font-bold text-lg bg-purple-100 p-2 rounded mb-3 text-purple-800">Thông số bồn xitec</h4>
