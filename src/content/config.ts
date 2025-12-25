@@ -185,6 +185,7 @@ const productsCollection = defineCollection({
     aerialPlatformSpec: z.record(z.any()).optional(),
     vacuumSystem: z.record(z.any()).optional(),
     glassRackSpec: z.record(z.any()).optional(),
+    manBasketSpec: z.record(z.any()).optional(),
 
     // Additional specs
     specifications: z.record(z.any()).optional(),
