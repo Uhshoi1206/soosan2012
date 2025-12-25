@@ -297,73 +297,73 @@ const ProductDetailTabs: React.FC<ProductDetailTabsProps> = ({ truck }) => {
                   )}
                   {truck.frontSuspension && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Hệ thống treo trước</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Hệ thống treo trước</td>
                       <td className="py-2 px-3 font-medium">{truck.frontSuspension}</td>
                     </tr>
                   )}
                   {truck.rearSuspension && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Hệ thống treo sau</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Hệ thống treo sau</td>
                       <td className="py-2 px-3 font-medium">{truck.rearSuspension}</td>
                     </tr>
                   )}
                   {truck.frontBrake && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Phanh trước</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Phanh trước</td>
                       <td className="py-2 px-3 font-medium">{truck.frontBrake}</td>
                     </tr>
                   )}
                   {truck.rearBrake && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Phanh sau</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Phanh sau</td>
                       <td className="py-2 px-3 font-medium">{truck.rearBrake}</td>
                     </tr>
                   )}
                   {truck.brakeSystem && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Hệ thống phanh</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Hệ thống phanh</td>
                       <td className="py-2 px-3 font-medium">{truck.brakeSystem}</td>
                     </tr>
                   )}
                   {truck.parkingBrake && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Phanh tay</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Phanh tay</td>
                       <td className="py-2 px-3 font-medium">{truck.parkingBrake}</td>
                     </tr>
                   )}
                   {truck.steeringType && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Hệ thống lái</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Hệ thống lái</td>
                       <td className="py-2 px-3 font-medium">{truck.steeringType}</td>
                     </tr>
                   )}
                   {truck.tires && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Lốp xe</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Lốp xe</td>
                       <td className="py-2 px-3 font-medium">{truck.tires}</td>
                     </tr>
                   )}
                   {truck.driveType && (
                     <tr className="border-b bg-blue-50">
-                      <td className="py-2 px-3 text-gray-600">Hệ dẫn động</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Hệ dẫn động</td>
                       <td className="py-2 px-3 font-medium text-blue-700">{truck.driveType}</td>
                     </tr>
                   )}
                   {truck.trackWidthFront && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Vệt bánh trước</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Vệt bánh trước</td>
                       <td className="py-2 px-3 font-medium">{truck.trackWidthFront}</td>
                     </tr>
                   )}
                   {truck.trackWidthRear && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Vệt bánh sau</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Vệt bánh sau</td>
                       <td className="py-2 px-3 font-medium">{truck.trackWidthRear}</td>
                     </tr>
                   )}
                   {truck.fuelTankCapacity && (
                     <tr className="border-b">
-                      <td className="py-2 px-3 text-gray-600">Dung tích bình nhiên liệu</td>
+                      <td className="py-2 px-3 text-gray-600 w-1/3">Dung tích bình nhiên liệu</td>
                       <td className="py-2 px-3 font-medium">{truck.fuelTankCapacity}</td>
                     </tr>
                   )}
