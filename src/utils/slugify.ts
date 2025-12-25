@@ -48,7 +48,7 @@ const boxTypeSlugMap: { [key: string]: string } = {
   'kín': 'kin',
   'bạt': 'bat',
   'lửng': 'lung',
-  'xi-téc': 'xi-tec',
+  'bồn-xi-téc': 'bon-xi-tec',
   'cánh-dơi': 'canh-doi',
   'ben': 'ben',
   'trộn-bê-tông': 'tron-be-tong',
