@@ -323,6 +323,25 @@ export interface GlassRackSpecification {
   certifications?: string;        // Chứng nhận
 }
 
+// Chi tiết về giỏ nâng người (man basket) gắn vào cẩu
+export interface ManBasketSpecification {
+  model?: string;                   // Model giỏ
+  size?: string;                    // Kích thước giỏ (DxRxC)
+  capacity?: string;                // Tải trọng giỏ
+  persons?: string;                 // Số người
+  material?: string;                // Vật liệu
+  insulationRating?: string;        // Khả năng cách điện
+  insulationResistance?: string;    // Điện trở cách điện
+  floor?: string;                   // Sàn giỏ
+  railing?: string;                 // Lan can
+  safetyHook?: string;              // Điểm móc dây an toàn
+  weight?: string;                  // Trọng lượng giỏ
+  connection?: string;              // Kết nối với cẩu
+  toolHolder?: string;              // Giá dụng cụ
+  certification?: string;           // Chứng nhận
+  color?: string;                   // Màu sắc
+}
+
 // Chi tiết về hệ thống hút chân không (xe hút bụi công nghiệp)
 export interface VacuumSystemSpec {
   tankCapacity?: string;       // Dung tích bồn
@@ -405,6 +424,7 @@ export interface Truck {
   aerialPlatformSpec?: AerialPlatformSpec;  // Xe nâng người trên cao
   vacuumSystem?: VacuumSystemSpec;          // Xe hút bụi công nghiệp
   glassRackSpec?: GlassRackSpecification;   // Xe chở kính giá chữ A
+  manBasketSpec?: ManBasketSpecification;   // Giỏ nâng người gắn cẩu
 
   // Thông số kỹ thuật phổ biến
   engineType?: string;
